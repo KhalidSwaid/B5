@@ -305,40 +305,45 @@
                     </button>
                     <!-- Dark/Light Mode Toggle Button -->
                     <button id="darkModeToggle"
-                        class="fixed top-4 right-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-2 rounded-full focus:outline-none">
+                        class="fixed top-4 right-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded-full focus:outline-none">
                     </button>
 
                 </div>
             </div>
         </div>
     </nav>
-    <div class="max-w-3xl mx-auto">
-        <div class="fixed top-20 left-0 right-0 flex items-center justify-center scrollable-table">
-            <!-- Table -->
-            <table id="dataTable"
-                class="w-500 bg-white border border-gray-300 shadow-md rounded-md overflow-hidden mt-10">
-                <!-- Table Header -->
+    <div class="max-w-screen-xl mx-auto h-screen flex flex-col">
+        <!-- Table Header -->
+        <div class="bg-white border border-gray-300 shadow-md rounded-t-md overflow-hidden">
+            <table class="w-full">
                 <thead>
                     <tr>
-                        <th class="py-2 px-4 border-b">#</th>
-                        <th class="py-2 px-4 border-b">Name</th>
-                        <th class="py-2 px-4 border-b">Price</th>
-                        <th class="py-2 px-4 border-b">1h%</th>
-                        <th class="py-2 px-4 border-b">24h%</th>
-                        <th class="py-2 px-4 border-b">7d%</th>
-                        <th class="py-2 px-4 border-b">Market Cap</th>
-                        <th class="py-2 px-4 border-b">Volume</th>
-                        <th class="py-2 px-4 border-b">
-                            Circulating Supply
-                        </th>
-                        <th class="py-2 px-4 border-b">Last 7 days</th>
+                        <th class="py-3 px-6 border-b">#</th>
+                        <th class="py-3 px-6 border-b">Name</th>
+                        <th class="py-3 px-6 border-b">Price</th>
+                        <th class="py-3 px-6 border-b">1h%</th>
+                        <th class="py-3 px-6 border-b">24h%</th>
+                        <th class="py-3 px-6 border-b">7d%</th>
+                        <th class="py-3 px-6 border-b">Market Cap</th>
+                        <th class="py-3 px-6 border-b">Volume</th>
+                        <th class="py-3 px-6 border-b">Circulating Supply</th>
+                        <th class="py-3 px-6 border-b">Last 7 days</th>
                     </tr>
                 </thead>
+            </table>
+        </div>
+        <!-- Table Container -->
+        <div class="flex-1 overflow-y-auto">
+            <table id="dataTable"
+                class="w-full bg-white border border-gray-300 shadow-md rounded-b-md overflow-hidden mt-0">
                 <!-- Table Body -->
-                <tbody id="tableBody"></tbody>
+                <tbody id="tableBody">
+                    <!-- Table Rows (Your data goes here) -->
+                </tbody>
             </table>
         </div>
     </div>
+    
     <script type="module" src="/main.js"></script>
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
