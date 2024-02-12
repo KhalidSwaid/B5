@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "0.50%",
             "0.20%",
             "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/3.svg",
-            "https://w7.pngwing.com/pngs/745/641/png-transparent-ripple-xrp-cryptocoins-icon-thumbnail.png",
+            "https://altcoinsbox.com/wp-content/uploads/2023/09/xrp-logo-white-background.png",
         ),
         new Cryptocurrency(
             "Cardano",
@@ -504,10 +504,11 @@ function buildTable(currency) {
 
     currency.forEach((crypto, index) => {
         const row = document.createElement("tr");
+        row.className = index === currency.size - 1 ? "" : "border-b";
 
         // Creating and appending the # cell
         let cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b";
+        cell.className = "py-2 px-4";
         cell.style = "text-align: center"; // Styling as per your setup
         cell.textContent = index + 1;
         row.appendChild(cell);
@@ -520,12 +521,12 @@ function buildTable(currency) {
         image.className = "w-6 h-6 mr-2"; // Add your classes here
         cell.appendChild(image);
         cell.appendChild(document.createTextNode(crypto.name));
-        cell.className = "py-2 px-4 flex items-left justify-start mt-2.5 mr-5"; // Add your classes here
+        cell.className = "py-2 px-4 flex justify-start items-center";
         row.appendChild(cell);
 
         // Price
         cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b text-center";
+        cell.className = "py-2 px-4 text-center";
         cell.textContent = crypto.price;
         row.appendChild(cell);
 
@@ -543,6 +544,7 @@ function buildTable(currency) {
 
         // Market Cap
         cell = document.createElement("td");
+        cell.className = "py-2 px-4";
         cell.textContent = crypto.marketCap;
         row.appendChild(cell);
 
@@ -552,7 +554,7 @@ function buildTable(currency) {
 
         // Circulating Supply
         cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b";
+        cell.className = "py-2 px-4";
         cell.textContent = crypto.circulatingSupply;
         cell.style = "text-align: center"; // Styling as per your setup
         row.appendChild(cell);
@@ -563,6 +565,7 @@ function buildTable(currency) {
         imgLast7Days.src = crypto.last7d;
         imgLast7Days.loading = "lazy";
         cell.appendChild(imgLast7Days);
+        cell.className = "py-2 px-4";
         row.appendChild(cell);
 
         // Append the row to the table body
