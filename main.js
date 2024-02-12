@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "0.25%",
             "0.09%",
             "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1.svg",
-            "images/Bitcoin.svg.webp",
+            "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=002",
         ),
         new Cryptocurrency(
             "Ethereum",
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
             "6.80%",
             "0.13%",
             "https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/1027.svg",
-            "images/Ethereum_logo_2014.svg.png",
+            "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=002",
         ),
         new Cryptocurrency(
             "Litecoin",
