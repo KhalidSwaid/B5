@@ -521,7 +521,7 @@ function buildTable(currency) {
         image.className = "w-6 h-6 mr-2";
         cell.appendChild(image);
         cell.appendChild(document.createTextNode(crypto.name));
-        cell.className = "py-2 px-4 flex justify-start h-[100%] items-center text-center";
+        cell.className = "py-2 px-4 flex justify-start h-[100%] items-center";
         row.appendChild(cell);
 
         // Price
