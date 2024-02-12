@@ -301,75 +301,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ),
     ];
 
-    const tableBody = document.getElementById("dataTable");
-    // tableBody.innerHTML = "<thead><tr><th class='py-2 px-4 border-b'>#</th><th class='py-2 px-4 border-b'>Name</th><th class='py-2 px-4 border-b'>Price</th><th class='py-2 px-4 border-b'>1h%</th><th class='py-2 px-4 border-b'>24h%</th><th class='py-2 px-4 border-b'>7d%</th><th class='py-2 px-4 border-b'>Market Cap</th><th class='py-2 px-4 border-b'>Volume</th><th class='py-2 px-4 border-b'>Circulating Supply</th><th class='py-2 px-4 border-b'>Last 7 days</th></tr></thead>"; // Clear existing table rows, if any
+    let filteredCurrencies = cryptocurrencies;
 
-    cryptocurrencies.forEach((crypto, index) => {
-        const row = document.createElement("tr");
-
-        // Creating and appending the # cell
-        let cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b";
-        cell.style = "text-align: center"; // Styling as per your setup
-        cell.textContent = index + 1;
-        row.appendChild(cell);
-
-        // Creating and appending the Name cell with image
-        cell = document.createElement("td");
-        const image = document.createElement("img");
-        image.src = crypto.image;
-        image.alt = `${crypto.name} Logo`;
-        image.className = "w-6 h-6 mr-2"; // Add your classes here
-        cell.appendChild(image);
-        cell.appendChild(document.createTextNode(crypto.name));
-        cell.className = "py-2 px-4 flex items-left justify-start mt-2.5 mr-5"; // Add your classes here
-        row.appendChild(cell);
-
-        // Price
-        cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b text-center";
-        cell.textContent = crypto.price;
-        row.appendChild(cell);
-
-        // Change 1h
-        cell = createChangeElement(crypto.change1h);
-        row.appendChild(cell);
-
-        // Change 24h
-        cell = createChangeElement(crypto.change24h);
-        row.appendChild(cell);
-
-        // Change 7d
-        cell = createChangeElement(crypto.change7d);
-        row.appendChild(cell);
-
-        // Market Cap
-        cell = document.createElement("td");
-        cell.textContent = crypto.marketCap;
-        row.appendChild(cell);
-
-        // Volume
-        cell = createVolumeCell(crypto.volume, crypto.subVolume);
-        row.appendChild(cell);
-
-        // Circulating Supply
-        cell = document.createElement("td");
-        cell.className = "py-2 px-4 border-b";
-        cell.textContent = crypto.circulatingSupply;
-        cell.style = "text-align: center"; // Styling as per your setup
-        row.appendChild(cell);
-
-        // Last 7 Days
-        cell = document.createElement("td");
-        const imgLast7Days = document.createElement("img");
-        imgLast7Days.src = crypto.last7d;
-        imgLast7Days.loading = "lazy";
-        cell.appendChild(imgLast7Days);
-        row.appendChild(cell);
-
-        // Append the row to the table body
-        tableBody.appendChild(row);
-    });
+    buildTable(filteredCurrencies);
 
     const button = document.getElementById("englishButton"); //get language toggle bar button
     const dropdown = document.getElementById("language-dropdown-menu"); //get language dropdown menu
@@ -380,16 +314,32 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropDownTools = document.getElementById("dropdownHover");
     //Adding event listener to the search input for capturing 'Enter' keypress
     if (searchInput) {
-        searchInput.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                //Capture the search when 'Enter' has been pressed
-                const searchTerm = event.target.value;
-                console.log("You searched for: " + searchTerm);
-
-                // Clear the search input and set placeholder text
-                event.target.value = "";
-                event.target.placeholder = "Search...";
+        searchInput.addEventListener("input", function (event) {
+            //Capture the search when 'Enter' has been pressed
+            if (event.target.value) {
+                const searchIcon = document.getElementById("searchIcon");
+                searchIcon.classList.add("hidden");
+            } else {
+                const searchIcon = document.getElementById("searchIcon");
+                searchIcon.classList.remove("hidden");
             }
+            const searchTerm = event.target.value;
+            filteredCurrencies = [];
+            cryptocurrencies.forEach((currency) => {
+                const lowerCaseName = currency.name.toLowerCase();
+                const lowerCaseSymbol = currency.symbol.toLowerCase();
+                if (
+                    lowerCaseName.includes(searchTerm.toLowerCase()) ||
+                    lowerCaseSymbol.includes(searchTerm.toLowerCase())
+                ) {
+                    filteredCurrencies.push(currency);
+                }
+            });
+            buildTable(filteredCurrencies);
+
+            // Clear the search input and set placeholder text
+            // event.target.value = "";
+            // event.target.placeholder = "Search...";
         });
     }
 
@@ -518,16 +468,16 @@ function createVolumeCell(volume, subVolume) {
     return td;
 }
 
-const darkModeToggle = document.getElementById('darkModeToggle');
+const darkModeToggle = document.getElementById("darkModeToggle");
 const body = document.body;
 
-darkModeToggle.addEventListener('click', () => {
+darkModeToggle.addEventListener("click", () => {
     // Toggle dark mode class on the body
-    body.classList.toggle('dark');
+    body.classList.toggle("dark");
 
     // Save user preference in localStorage
-    const isDarkMode = body.classList.contains('dark');
-    localStorage.setItem('darkMode', isDarkMode);
+    const isDarkMode = body.classList.contains("dark");
+    localStorage.setItem("darkMode", isDarkMode);
 
     // Update button text based on mode
     updateButtonText(isDarkMode);
@@ -535,18 +485,87 @@ darkModeToggle.addEventListener('click', () => {
 
 // Function to update button text based on mode
 function updateButtonText(isDarkMode) {
-    darkModeToggle.textContent = isDarkMode ? 'Light' : 'Dark';
+    darkModeToggle.textContent = isDarkMode ? "Light" : "Dark";
 }
 
 // Check user preference from localStorage
-const isDarkMode = localStorage.getItem('darkMode') === 'true';
+const isDarkMode = localStorage.getItem("darkMode") === "true";
 if (isDarkMode) {
-    body.classList.add('dark');
+    body.classList.add("dark");
     updateButtonText(true);
 } else {
-    body.classList.remove('dark');
+    body.classList.remove("dark");
     updateButtonText(false);
 }
 
+function buildTable(currency) {
+    const tableBody = document.getElementById("dataTable");
+    tableBody.innerHTML = "";
 
+    currency.forEach((crypto, index) => {
+        const row = document.createElement("tr");
 
+        // Creating and appending the # cell
+        let cell = document.createElement("td");
+        cell.className = "py-2 px-4 border-b";
+        cell.style = "text-align: center"; // Styling as per your setup
+        cell.textContent = index + 1;
+        row.appendChild(cell);
+
+        // Creating and appending the Name cell with image
+        cell = document.createElement("td");
+        const image = document.createElement("img");
+        image.src = crypto.image;
+        image.alt = `${crypto.name} Logo`;
+        image.className = "w-6 h-6 mr-2"; // Add your classes here
+        cell.appendChild(image);
+        cell.appendChild(document.createTextNode(crypto.name));
+        cell.className = "py-2 px-4 flex items-left justify-start mt-2.5 mr-5"; // Add your classes here
+        row.appendChild(cell);
+
+        // Price
+        cell = document.createElement("td");
+        cell.className = "py-2 px-4 border-b text-center";
+        cell.textContent = crypto.price;
+        row.appendChild(cell);
+
+        // Change 1h
+        cell = createChangeElement(crypto.change1h);
+        row.appendChild(cell);
+
+        // Change 24h
+        cell = createChangeElement(crypto.change24h);
+        row.appendChild(cell);
+
+        // Change 7d
+        cell = createChangeElement(crypto.change7d);
+        row.appendChild(cell);
+
+        // Market Cap
+        cell = document.createElement("td");
+        cell.textContent = crypto.marketCap;
+        row.appendChild(cell);
+
+        // Volume
+        cell = createVolumeCell(crypto.volume, crypto.subVolume);
+        row.appendChild(cell);
+
+        // Circulating Supply
+        cell = document.createElement("td");
+        cell.className = "py-2 px-4 border-b";
+        cell.textContent = crypto.circulatingSupply;
+        cell.style = "text-align: center"; // Styling as per your setup
+        row.appendChild(cell);
+
+        // Last 7 Days
+        cell = document.createElement("td");
+        const imgLast7Days = document.createElement("img");
+        imgLast7Days.src = crypto.last7d;
+        imgLast7Days.loading = "lazy";
+        cell.appendChild(imgLast7Days);
+        row.appendChild(cell);
+
+        // Append the row to the table body
+        tableBody.appendChild(row);
+    });
+}
