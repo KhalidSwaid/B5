@@ -509,7 +509,7 @@ function buildTable(currency) {
         // Creating and appending the # cell
         let cell = document.createElement("td");
         cell.className = "py-2 px-4";
-        cell.style = "text-align: center"; // Styling as per your setup
+        cell.style = "text-align: center";
         cell.textContent = index + 1;
         row.appendChild(cell);
 
@@ -518,10 +518,10 @@ function buildTable(currency) {
         const image = document.createElement("img");
         image.src = crypto.image;
         image.alt = `${crypto.name} Logo`;
-        image.className = "w-6 h-6 mr-2"; // Add your classes here
+        image.className = "w-6 h-6 mr-2";
         cell.appendChild(image);
         cell.appendChild(document.createTextNode(crypto.name));
-        cell.className = "py-2 px-4 flex justify-start items-center";
+        cell.className = "py-2 px-4 flex justify-start h-[100%] items-center";
         row.appendChild(cell);
 
         // Price
