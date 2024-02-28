@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Create Tailwind</title>
         <link rel="stylesheet" href="style.css" />
+
         <!-- Dark Mode Class -->
         <link
             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind-dark.min.css"
@@ -84,8 +85,8 @@
                         <input
                             type="text"
                             id="search-navbar"
-                            class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="       Search..."
+                            class="pl-9 block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Search..."
                         />
                     </div>
                     <button
@@ -519,34 +520,55 @@
                             Log In
                         </button>
                         <!-- Dark/Light Mode Toggle Button -->
-                        <button
+                        <!-- <button
                             id="darkModeToggle"
                             class="fixed top-4 right-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded-full focus:outline-none"
-                        ></button>
+                        ></button> -->
+                        <div
+                            class="theme-switch-wrapper fixed top-4 right-4 bg-gray-200 py-1 px-1 rounded-full"
+                        >
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" checked />
+                                <div class="slider round">
+                                    <!-- The icons are now controlled via JavaScript -->
+                                </div>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
+
         <div class="mx-auto h-screen flex flex-col">
             <!-- Table Header -->
             <div
-                class="dark:text-white border border-gray-300 shadow-md rounded-md overflow-hidden"
+                class="overflow-x-auto dark:text-white border border-gray-300 shadow-md rounded-md"
             >
-                <table class="w-full">
+                <table class="w-full min-w-max">
                     <thead>
                         <tr>
                             <th class="py-3 px-6 border-b">#</th>
                             <th class="py-3 px-6 border-b">Name</th>
                             <th class="py-3 px-6 border-b">Price</th>
-                            <th class="py-3 px-6 border-b">1h%</th>
-                            <th class="py-3 px-6 border-b">24h%</th>
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
+                                1h%
+                            </th>
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
+                                24h%
+                            </th>
                             <th class="py-3 px-6 border-b">7d%</th>
-                            <th class="py-3 px-6 border-b">Market Cap</th>
-                            <th class="py-3 px-6 border-b">Volume</th>
-                            <th class="py-3 px-6 border-b">
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
+                                Market Cap
+                            </th>
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
+                                Volume
+                            </th>
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
                                 Circulating Supply
                             </th>
-                            <th class="py-3 px-6 border-b">Last 7 days</th>
+                            <th class="py-3 px-6 border-b md:table-cell hidden">
+                                Last 7 days
+                            </th>
                         </tr>
                     </thead>
 
@@ -556,16 +578,9 @@
                     ></tbody>
                 </table>
             </div>
-            <!-- Table Container -->
-            <!-- <div class="flex-1 overflow-y-auto">
-                <table
-                    id="dataTable"
-                    class="w-full bg-white border border-gray-300 shadow-md rounded-b-md overflow-hidden mt-0"
-                ></table>
-            </div> -->
         </div>
-
         <script type="module" src="main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Place this tag in your head or just before your close body tag. -->
         <script async defer src="https://buttons.github.io/buttons.js"></script>
     </body>
