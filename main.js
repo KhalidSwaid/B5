@@ -707,31 +707,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-    // Add event listener to the select element
-    document.getElementById('language-selector').addEventListener('change', function(event) {
-        // Get the selected language code
-        var selectedLanguage = event.target.value;
-        // Call a function to update the language based on the selected language code
-        updateLanguage(selectedLanguage);
-    });
-
-    // Function to update the language based on the selected language code
-    function updateLanguage(languageCode) {
-        // Get the select element
-        var selectElement = document.getElementById('language-selector');
-        // Get the selected option
-        var selectedOption = selectElement.options[selectElement.selectedIndex];
-        // Get the icon path from the selected option
-        var iconPath = selectedOption.getAttribute('data-icon');
-        // Get the language name from the selected option
-        var languageName = selectedOption.textContent;
-
-        // Update the language display with the icon and name
-        var languageDisplay = document.getElementById('selected-language-display');
-        languageDisplay.innerHTML = `<img src="${iconPath}" class="h-4 w-4 inline-block mr-2">${languageName}`;
-        
-    }
-
 
 
 
