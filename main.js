@@ -572,3 +572,123 @@ function buildTable(currency) {
         tableBody.appendChild(row);
     });
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all language links inside the dropdown menu
+    var languageLinks = document.querySelectorAll('#language-dropdown-menu a');
+
+    // Define language translation objects
+    var translations = {
+        'en': {
+            'LogInButton': 'Log In',
+            'SignUpButton': 'Sign Up',
+            'darkModeToggle': 'Dark',
+            'CoinsButton':'Coins',
+            'NewsButton':'News',
+            'CompareButton':'Compare',
+            'NameInTable':'Name',
+            'PriceInTable':'Price',
+            'MarketCapInTable':'Market Cap',
+            'VolumeInTable':'Volume',
+            'Last7DaysInTable':'Last 7 days',
+            'DashBoardButton':'Dashboard'
+        },
+        'de': {
+            'LogInButton': 'Anmeldung',
+            'SignUpButton': 'Melden Sie sich an',
+            'darkModeToggle': 'Dunkel',
+            'CoinsButton':'Münzen',
+            'NewsButton':'Nachricht',
+            'CompareButton':'vergleichen',
+            'NameInTable':'Name',
+            'PriceInTable':'Preis',
+            'MarketCapInTable':'Marktkapitalisierung',
+            'VolumeInTable':'Volumen',
+            'Last7DaysInTable':'Letzten 7 Tage',
+            'DashBoardButton':'Armaturenbrett'
+        },
+        'it': {
+            'LogInButton': 'Login',
+            'SignUpButton': 'Iscrizione',
+            'darkModeToggle': 'Buio',
+            'CoinsButton':'Monete',
+            'NewsButton':'Notizia',
+            'CompareButton':'Confrontare',
+            'NameInTable':'Nome',
+            'PriceInTable':'Prezzo',
+            'MarketCapInTable':'Capitalizzazione di mercato',
+            'VolumeInTable':'Volume',
+            'Last7DaysInTable':'Ultimi 7 giorni',
+            'DashBoardButton':'Pannello di controllo'
+        },
+        'zh': {
+            'LogInButton': 'ログイン',
+            'SignUpButton': 'サインアップ',
+            'darkModeToggle': '暗い',
+            'CoinsButton':'コイン',
+            'NewsButton':'ニュース',
+            'CompareButton':'比較する',
+            'NameInTable':'名前',
+            'PriceInTable':'価格',
+            'MarketCapInTable':'時価総額',
+            'VolumeInTable':'音量',
+            'Last7DaysInTable':'過去 7 日間',
+            'DashBoardButton':'ダッシュボード'
+        }
+    };
+
+    // Function to change language
+    function changeLanguage(language) {
+        // Update text content of elements based on language
+        document.getElementById('LogInButton').textContent = translations[language]['LogInButton'];
+        document.getElementById('SignUpButton').textContent = translations[language]['SignUpButton'];
+        document.getElementById('darkModeToggle').textContent = translations[language]['darkModeToggle'];
+        document.getElementById('CoinsButton').textContent = translations[language]['CoinsButton'];
+        document.getElementById('NewsButton').textContent = translations[language]['NewsButton'];
+        document.getElementById('CompareButton').textContent = translations[language]['CompareButton'];
+        document.getElementById('NameInTable').textContent = translations[language]['NameInTable'];
+        document.getElementById('PriceInTable').textContent = translations[language]['PriceInTable'];
+        document.getElementById('MarketCapInTable').textContent = translations[language]['MarketCapInTable'];
+        document.getElementById('VolumeInTable').textContent = translations[language]['VolumeInTable'];
+        document.getElementById('Last7DaysInTable').textContent = translations[language]['Last7DaysInTablen'];
+    }
+
+    // Add click event listener to each language link
+    languageLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var selectedLang = this.getAttribute('id').replace('lang-', ''); // Extract language from link id
+            changeLanguage(selectedLang); // Change language
+        });
+    });
+});
+
+
+
+    // Add event listener to the select element
+    document.getElementById('language-selector').addEventListener('change', function(event) {
+        // Get the selected language code
+        var selectedLanguage = event.target.value;
+        // Call a function to update the language based on the selected language code
+        updateLanguage(selectedLanguage);
+    });
+
+    // Function to update the language based on the selected language code
+    function updateLanguage(languageCode) {
+        // Get the select element
+        var selectElement = document.getElementById('language-selector');
+        // Get the selected option
+        var selectedOption = selectElement.options[selectElement.selectedIndex];
+        // Get the icon path from the selected option
+        var iconPath = selectedOption.getAttribute('data-icon');
+        // Get the language name from the selected option
+        var languageName = selectedOption.textContent;
+
+        // Update the language display with the icon and name
+        var languageDisplay = document.getElementById('selected-language-display');
+        languageDisplay.innerHTML = `<img src="${iconPath}" class="h-4 w-4 inline-block mr-2">${languageName}`;
+    }
+
+
+
+
