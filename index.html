@@ -22,7 +22,7 @@
     <body class="h-screen flex flex-col text-gray-800" id="body">
         <nav class="bg-white border-gray-200 dark:bg-gray-900">
             <div
-                class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+                class="flex flex-wrap items-center justify-between mx-auto py-4 px-10"
             >
                 <div class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img
@@ -146,7 +146,7 @@
                         /> -->
                     </div>
                     <ul
-                        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+                        class="flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
                     >
                         <li>
                             <a
@@ -181,10 +181,10 @@
                                         data-dropdown-toggle="dropdownHover"
                                         data-dropdown-trigger="hover"
                                         href="#"
-                                        class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-400 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                                        class="py-2 px-3 flex items-center text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-400 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                                         >Tools
                                         <svg
-                                            class="w-2.5 h-2.5 ms-3"
+                                            class="w-2.5 h-2.5 ms-2"
                                             aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg"
                                             fill="none"
@@ -496,10 +496,8 @@
             </div>
         </nav>
 
-        <div id="coins" class="body h-screen flex flex-col">
-            <h1
-                class="mx-10 text-3xl font-bold my-4 text-slate-950 dark:text-white"
-            >
+        <div id="coins" class="body">
+            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
                 Cryptocurrency Prices
             </h1>
             <!-- Table Header -->
@@ -507,7 +505,7 @@
                 class="mx-10 overflow-x-auto dark:text-white border border-gray-300 shadow-md rounded-md"
             >
                 <table class="w-full">
-                    <thead>
+                    <thead class="table-header">
                         <tr>
                             <th class="py-3 px-6 border-b">#</th>
                             <th class="py-3 px-6 border-b">Name</th>
@@ -543,21 +541,23 @@
         </div>
 
         <div id="news" class="body mx-auto h-screen flex-col hidden">
-            <h1
-                class="mx-10 text-3xl font-bold my-4 text-slate-950 dark:text-white"
-            >
+            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
                 Latest News
             </h1>
-            <div id="news-container" class="mx-10 grid grid-cols-1 gap-5"></div>
+            <div
+                id="news-container"
+                class="mx-5 md:mx-10 grid grid-cols-1 gap-5"
+            ></div>
         </div>
 
         <div id="compare" class="body mx-auto h-screen flex-col hidden">
-            <h1
-                class="mx-10 text-3xl font-bold my-4 text-slate-950 dark:text-white"
-            >
+            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
                 Compare Currencies
             </h1>
-            Compare Page
+            <div
+                id="compare-container"
+                class="mx-10 grid grid-cols-1 gap-5"
+            ></div>
         </div>
 
         <script type="module" src="main.js"></script>
