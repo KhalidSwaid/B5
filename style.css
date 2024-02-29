@@ -10,9 +10,7 @@
 }
 
 table {
-    padding: 100;
     height: 100%;
-    width: 70%;
     border-collapse: collapse;
 }
 .dark {
@@ -32,122 +30,12 @@ table {
     align-items: center;
 }
 
-.theme-switch {
-    display: inline-block;
-    height: 34px;
-    position: relative;
-    width: 60px;
+nav {
+    height: 72px;
+    width: -webkit-fill-available;
+    position: fixed;
 }
 
-.theme-switch input {
-    display: none;
-}
-
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: 0.4s;
-}
-
-input:checked + .slider {
-    background-color: #66bb6a;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
-/* Icon styling */
-.icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 50%;
-    color: #f39c12;
-    font-size: 20px;
-}
-
-.sun {
-    /* Sun icon specific styles if needed */
-}
-
-.moon {
-    /* Moon icon specific styles if needed */
-    color: #f1c40f;
-}
-
-.slider {
-    background-color: #151931;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: 0.4s;
-    display: flex;
-}
-
-input:checked + .slider {
-    background-color: #82caff;
-    /* #66bb6a */
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
-
-input:checked + .slider .moon {
-    color: #151931;
-}
-
-input:checked + .slider .sun {
-    color: #f39c12;
-}
-
-.slider:before {
-    /* Adjust the circle's position and size if necessary */
-    background-color: #fff;
-    border-radius: 50%;
-    bottom: 2px;
-    content: ""; /* This will be dynamically updated */
-    height: 30px;
-    left: 2px;
-    position: absolute;
-    transition: 0.4s;
-    width: 30px;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 3px;
-    font-size: 20px;
-}
-
-input:checked + .slider:before {
-    transform: translateX(
-        26px
-    ); /* Adjust if necessary based on the slider's size */
-}
-
-.slider.light:before {
-    content: "\1F319"; /* Sun */
-}
-
-.slider.dark:before {
-    content: "\2600"; /* Moon */
+.body {
+    margin-top: 72px;
 }
