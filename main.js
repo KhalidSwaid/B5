@@ -591,7 +591,13 @@ document.addEventListener("DOMContentLoaded", function() {
             'MarketCapInTable':'Market Cap',
             'VolumeInTable':'Volume',
             'Last7DaysInTable':'Last 7 days',
-            'DashBoardButton':'Dashboard'
+            'CirculatingSupplyInTable':'Circulating Supply',
+            'toolsName':'Tools',
+            'DashBoardButton':'Dashboard',
+            'SettingsButton':'Settings',
+            'EarningsButton':'Earnings',
+            'SignOutButton':'Sign Out',
+            'searchPlaceholder':'       Search...',
         },
         'de': {
             'LogInButton': 'Anmeldung',
@@ -605,7 +611,13 @@ document.addEventListener("DOMContentLoaded", function() {
             'MarketCapInTable':'Marktkapitalisierung',
             'VolumeInTable':'Volumen',
             'Last7DaysInTable':'Letzten 7 Tage',
-            'DashBoardButton':'Armaturenbrett'
+            'CirculatingSupplyInTable':'Umlaufversorgung',
+            'toolsName':'Werkzeuge',
+            'DashBoardButton':'Armaturenbrett',
+            'SettingsButton':'Einstellungen',
+            'EarningsButton':'Verdienste',
+            'SignOutButton':'Abmelden',
+            'searchPlaceholder':'       Suchen...',
         },
         'it': {
             'LogInButton': 'Login',
@@ -619,7 +631,13 @@ document.addEventListener("DOMContentLoaded", function() {
             'MarketCapInTable':'Capitalizzazione di mercato',
             'VolumeInTable':'Volume',
             'Last7DaysInTable':'Ultimi 7 giorni',
-            'DashBoardButton':'Pannello di controllo'
+            'CirculatingSupplyInTable':'Fornitura circolante',
+            'toolsName':'Utensili',
+            'DashBoardButton':'Pannello di controllo',
+            'SettingsButton':'Impostazioni',
+            'EarningsButton':'Guadagni',
+            'SignOutButton':'Disconnessione',
+            'searchPlaceholder':'       Ricerca...',
         },
         'zh': {
             'LogInButton': 'ログイン',
@@ -633,7 +651,13 @@ document.addEventListener("DOMContentLoaded", function() {
             'MarketCapInTable':'時価総額',
             'VolumeInTable':'音量',
             'Last7DaysInTable':'過去 7 日間',
-            'DashBoardButton':'ダッシュボード'
+            'CirculatingSupplyInTable':'循環供給',
+            'toolsName':'ツール',
+            'DashBoardButton':'ダッシュボード',
+            'SettingsButton':'設定',
+            'EarningsButton':'収益',
+            'SignOutButton':'サインアウト',
+            'searchPlaceholder':'       検索...',
         }
     };
 
@@ -651,6 +675,24 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('MarketCapInTable').textContent = translations[language]['MarketCapInTable'];
         document.getElementById('VolumeInTable').textContent = translations[language]['VolumeInTable'];
         document.getElementById('Last7DaysInTable').textContent = translations[language]['Last7DaysInTablen'];
+        document.getElementById('CirculatingSupplyInTable').textContent = translations[language]['CirculatingSupplyInTable'];
+        document.getElementById('toolsName').textContent = translations[language]['toolsName'];
+        document.getElementById('DashBoardButton').textContent = translations[language]['DashBoardButton'];
+        document.getElementById('SettingsButton').textContent = translations[language]['SettingsButton'];
+        document.getElementById('EarningsButton').textContent = translations[language]['EarningsButton'];
+        document.getElementById('SignOutButton').textContent = translations[language]['SignOutButton'];
+        document.getElementById('search-navbar').placeholder = translations[language]['searchPlaceholder'];
+
+        // Get the flag SVG and language name for the selected language
+        var selectedOption = document.querySelector(`#lang-${language}`);
+        var flagSvg = selectedOption.querySelector('svg').outerHTML;
+        var languageName = selectedOption.textContent;
+
+        document.getElementById('flagContainer').innerHTML = flagSvg;
+        document.getElementById('languageName').textContent = languageName;
+        // Hide the dropdown menu
+        var dropdownMenu = document.getElementById('language-dropdown-menu');
+        dropdownMenu.classList.add('hidden'); 
     }
 
     // Add click event listener to each language link
@@ -687,6 +729,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Update the language display with the icon and name
         var languageDisplay = document.getElementById('selected-language-display');
         languageDisplay.innerHTML = `<img src="${iconPath}" class="h-4 w-4 inline-block mr-2">${languageName}`;
+        
     }
 
 
