@@ -10841,13 +10841,13 @@ function setUpLanguageButton() {
 
 //handle change page function
 function setUpHandleChangePage() {
-    const coinsPageButton = document.getElementById("coinsButton"); //get language toggle bar button
+    const coinsPageButton = document.getElementById("CoinsButton"); //get language toggle bar button
     const coinsPage = document.getElementById("coins"); //get language toggle bar button
 
-    const newsPageButton = document.getElementById("newsButton"); //get language dropdown menu
+    const newsPageButton = document.getElementById("NewsButton"); //get language dropdown menu
     const newsPage = document.getElementById("news"); //get language dropdown menu
 
-    const comparePageButton = document.getElementById("compareButton"); //get language dropdown menu
+    const comparePageButton = document.getElementById("CompareButton"); //get language dropdown menu
     const comparePage = document.getElementById("compare"); //get language dropdown menu
 
     const notSelectPageButtonClassList =
@@ -10995,3 +10995,136 @@ function buildNewsList(news) {
         newsContainer.appendChild(card);
     });
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get all language links inside the dropdown menu
+    var languageLinks = document.querySelectorAll('#language-dropdown-menu a');
+
+    // Define language translation objects
+    var translations = {
+        'en': {
+            'LogInButton': 'Log In',
+            'SignUpButton': 'Sign Up',
+            'darkModeToggle': 'Dark',
+            'CoinsButton':'Coins',
+            'NewsButton':'News',
+            'CompareButton':'Compare',
+            'NameInTable':'Name',
+            'PriceInTable':'Price',
+            'MarketCapInTable':'Market Cap',
+            'VolumeInTable':'Volume',
+            'Last7DaysInTable':'Last 7 days',
+            'CirculatingSupplyInTable':'Circulating Supply',
+            'toolsName':'Tools',
+            'DashBoardButton':'Dashboard',
+            'SettingsButton':'Settings',
+            'EarningsButton':'Earnings',
+            'SignOutButton':'Sign Out',
+            'searchPlaceholder':'       Search...',
+        },
+        'de': {
+            'LogInButton': 'Anmeldung',
+            'SignUpButton': 'Melden Sie sich an',
+            'darkModeToggle': 'Dunkel',
+            'CoinsButton':'Münzen',
+            'NewsButton':'Nachricht',
+            'CompareButton':'vergleichen',
+            'NameInTable':'Name',
+            'PriceInTable':'Preis',
+            'MarketCapInTable':'Marktkapitalisierung',
+            'VolumeInTable':'Volumen',
+            'Last7DaysInTable':'Letzten 7 Tage',
+            'CirculatingSupplyInTable':'Umlaufversorgung',
+            'toolsName':'Werkzeuge',
+            'DashBoardButton':'Armaturenbrett',
+            'SettingsButton':'Einstellungen',
+            'EarningsButton':'Verdienste',
+            'SignOutButton':'Abmelden',
+            'searchPlaceholder':'       Suchen...',
+        },
+        'it': {
+            'LogInButton': 'Login',
+            'SignUpButton': 'Iscrizione',
+            'darkModeToggle': 'Buio',
+            'CoinsButton':'Monete',
+            'NewsButton':'Notizia',
+            'CompareButton':'Confrontare',
+            'NameInTable':'Nome',
+            'PriceInTable':'Prezzo',
+            'MarketCapInTable':'Capitalizzazione di mercato',
+            'VolumeInTable':'Volume',
+            'Last7DaysInTable':'Ultimi 7 giorni',
+            'CirculatingSupplyInTable':'Fornitura circolante',
+            'toolsName':'Utensili',
+            'DashBoardButton':'Pannello di controllo',
+            'SettingsButton':'Impostazioni',
+            'EarningsButton':'Guadagni',
+            'SignOutButton':'Disconnessione',
+            'searchPlaceholder':'       Ricerca...',
+        },
+        'zh': {
+            'LogInButton': 'ログイン',
+            'SignUpButton': 'サインアップ',
+            'darkModeToggle': '暗い',
+            'CoinsButton':'コイン',
+            'NewsButton':'ニュース',
+            'CompareButton':'比較する',
+            'NameInTable':'名前',
+            'PriceInTable':'価格',
+            'MarketCapInTable':'時価総額',
+            'VolumeInTable':'音量',
+            'Last7DaysInTable':'過去 7 日間',
+            'CirculatingSupplyInTable':'循環供給',
+            'toolsName':'ツール',
+            'DashBoardButton':'ダッシュボード',
+            'SettingsButton':'設定',
+            'EarningsButton':'収益',
+            'SignOutButton':'サインアウト',
+            'searchPlaceholder':'       検索...',
+        }
+    };
+
+    // Function to change language
+    function changeLanguage(language) {
+        // Update text content of elements based on language
+        document.getElementById('LogInButton').textContent = translations[language]['LogInButton'];
+        document.getElementById('SignUpButton').textContent = translations[language]['SignUpButton'];
+        document.getElementById('themeButton').textContent = translations[language]['darkModeToggle'];
+        document.getElementById('CoinsButton').textContent = translations[language]['CoinsButton'];
+        document.getElementById('NewsButton').textContent = translations[language]['NewsButton'];
+        document.getElementById('CompareButton').textContent = translations[language]['CompareButton'];
+        document.getElementById('NameInTable').textContent = translations[language]['NameInTable'];
+        document.getElementById('PriceInTable').textContent = translations[language]['PriceInTable'];
+        document.getElementById('MarketCapInTable').textContent = translations[language]['MarketCapInTable'];
+        document.getElementById('VolumeInTable').textContent = translations[language]['VolumeInTable'];
+        document.getElementById('Last7DaysInTable').textContent = translations[language]['Last7DaysInTablen'];
+        document.getElementById('CirculatingSupplyInTable').textContent = translations[language]['CirculatingSupplyInTable'];
+        document.getElementById('toolsName').textContent = translations[language]['toolsName'];
+        document.getElementById('DashBoardButton').textContent = translations[language]['DashBoardButton'];
+        document.getElementById('SettingsButton').textContent = translations[language]['SettingsButton'];
+        document.getElementById('EarningsButton').textContent = translations[language]['EarningsButton'];
+        document.getElementById('SignOutButton').textContent = translations[language]['SignOutButton'];
+        document.getElementById('search-navbar').placeholder = translations[language]['searchPlaceholder'];
+
+        // Get the flag SVG and language name for the selected language
+        var selectedOption = document.querySelector(`#lang-${language}`);
+        var flagSvg = selectedOption.querySelector('svg').outerHTML;
+        var languageName = selectedOption.textContent;
+
+        document.getElementById('flagContainer').innerHTML = flagSvg;
+        document.getElementById('languageName').textContent = languageName;
+        // Hide the dropdown menu
+        var dropdownMenu = document.getElementById('language-dropdown-menu');
+        dropdownMenu.classList.add('hidden'); 
+    }
+
+    // Add click event listener to each language link
+    languageLinks.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var selectedLang = this.getAttribute('id').replace('lang-', ''); // Extract language from link id
+            changeLanguage(selectedLang); // Change language
+        });
+    });
+});
