@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="images/0x0.png" />
+        <link rel="icon" type="image/svg+xml" href="images/logo.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Crypto Pulse</title>
         <link rel="stylesheet" href="style.css" />
@@ -25,7 +25,7 @@
             >
                 <div class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img
-                        src="images/0x0.png"
+                        src="images/logo.png"
                         alt="CryptoPulse logo"
                         class="h-8"
                     />
@@ -249,9 +249,7 @@
                                                 width: -webkit-fill-available;
                                                 text-align: start;
                                             "
-                                        >
-                                            Dark Mode
-                                        </button>
+                                        ></button>
                                     </li>
                                 </ul>
                             </div>
@@ -267,49 +265,63 @@
                         data-dropdown-toggle="language-dropdown-menu"
                         class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white mr-4"
                     >
-                    <span class="flagContainer">
-                        <svg
-                        class="w-5 h-5 rounded-full me-3"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 0 3900 3900"
-                    >
-                        <path fill="#b22234" d="M0 0h7410v3900H0z" />
-                        <path
-                            d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
-                            stroke="#fff"
-                            stroke-width="300"
-                        />
-                        <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
-                        <g fill="#fff">
-                            <g id="d">
-                                <g id="c">
-                                    <g id="e">
-                                        <g id="b">
-                                            <path
-                                                id="a"
-                                                d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                        <span id="flagContainer">
+                            <svg
+                                class="w-4 h-4 rounded-full me-3"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 3900 3900"
+                            >
+                                <path fill="#b22234" d="M0 0h7410v3900H0z" />
+                                <path
+                                    d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                                    stroke="#fff"
+                                    stroke-width="300"
+                                />
+                                <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+                                <g fill="#fff">
+                                    <g id="d">
+                                        <g id="c">
+                                            <g id="e">
+                                                <g id="b">
+                                                    <path
+                                                        id="a"
+                                                        d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                                                    />
+                                                    <use
+                                                        xlink:href="#a"
+                                                        y="420"
+                                                    />
+                                                    <use
+                                                        xlink:href="#a"
+                                                        y="840"
+                                                    />
+                                                    <use
+                                                        xlink:href="#a"
+                                                        y="1260"
+                                                    />
+                                                </g>
+                                                <use xlink:href="#a" y="1680" />
+                                            </g>
+                                            <use
+                                                xlink:href="#b"
+                                                x="247"
+                                                y="210"
                                             />
-                                            <use xlink:href="#a" y="420" />
-                                            <use xlink:href="#a" y="840" />
-                                            <use xlink:href="#a" y="1260" />
                                         </g>
-                                        <use xlink:href="#a" y="1680" />
+                                        <use xlink:href="#c" x="494" />
                                     </g>
-                                    <use xlink:href="#b" x="247" y="210" />
+                                    <use xlink:href="#d" x="988" />
+                                    <use xlink:href="#c" x="1976" />
+                                    <use xlink:href="#e" x="2470" />
                                 </g>
-                                <use xlink:href="#c" x="494" />
-                            </g>
-                            <use xlink:href="#d" x="988" />
-                            <use xlink:href="#c" x="1976" />
-                            <use xlink:href="#e" x="2470" />
-                        </g>
-                        </svg>
-                    </span>
+                            </svg>
+                        </span>
 
-                    <span id="languageName">English (US)</span>
-                    <span class="dropdown-arrow">▾</span> <!-- Dropdown arrow -->
+                        <span id="languageName">English (US)</span>
+                        <span class="dropdown-arrow">▾</span>
+                        <!-- Dropdown arrow -->
                     </button>
                     <!-- Dropdown -->
                     <div
@@ -509,20 +521,27 @@
             </div>
         </nav>
 
-        <div id="coins" class="body">
-            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
+        <div id="coins" class="body hidden">
+            <h1
+                id="cryptocurrencyPrices"
+                class="m-10 text-3xl font-bold text-slate-950 dark:text-white"
+            >
                 Cryptocurrency Prices
             </h1>
             <!-- Table Header -->
             <div
                 class="mx-10 overflow-x-auto dark:text-white border border-gray-300 shadow-md rounded-md"
             >
-                <table class="w-full">
-                    <thead class="table-header">
+                <table class="w-full min-w-max">
+                    <thead>
                         <tr>
                             <th class="py-3 px-6 border-b">#</th>
-                            <th id="NameInTable" class="py-3 px-6 border-b">Name</th>
-                            <th id="PriceInTable" class="py-3 px-6 border-b">Price</th>
+                            <th id="NameInTable" class="py-3 px-6 border-b">
+                                Name
+                            </th>
+                            <th id="PriceInTable" class="py-3 px-6 border-b">
+                                Price
+                            </th>
                             <th class="py-3 px-6 border-b md:table-cell hidden">
                                 1h%
                             </th>
@@ -530,16 +549,28 @@
                                 24h%
                             </th>
                             <th class="py-3 px-6 border-b">7d%</th>
-                            <th id="MarketCapInTable" class="py-3 px-6 border-b md:table-cell hidden">
+                            <th
+                                id="MarketCapInTable"
+                                class="py-3 px-6 border-b md:table-cell hidden"
+                            >
                                 Market Cap
                             </th>
-                            <th id="VolumeInTable" class="py-3 px-6 border-b md:table-cell hidden">
+                            <th
+                                id="VolumeInTable"
+                                class="py-3 px-6 border-b md:table-cell hidden"
+                            >
                                 Volume
                             </th>
-                            <th id="CirculatingSupplyInTable" class="py-3 px-6 border-b md:table-cell hidden">
+                            <th
+                                id="CirculatingSupplyInTable"
+                                class="py-3 px-6 border-b md:table-cell hidden"
+                            >
                                 Circulating Supply
                             </th>
-                            <th id="Last7DaysInTable" class="py-3 px-6 border-b md:table-cell hidden">
+                            <th
+                                id="Last7DaysInTable"
+                                class="py-3 px-6 border-b md:table-cell hidden"
+                            >
                                 Last 7 days
                             </th>
                         </tr>
@@ -553,8 +584,11 @@
             </div>
         </div>
 
-        <div id="news" class="body mx-auto h-screen flex-col hidden">
-            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
+        <div id="news" class="body w-full mx-auto h-screen flex-col hidden">
+            <h1
+                id="LatestNews"
+                class="m-10 text-3xl font-bold text-slate-950 dark:text-white"
+            >
                 Latest News
             </h1>
             <div
@@ -563,14 +597,71 @@
             ></div>
         </div>
 
-        <div id="compare" class="body mx-auto h-screen flex-col hidden">
-            <h1 class="m-10 text-3xl font-bold text-slate-950 dark:text-white">
+        <div id="compare" class="body w-full mx-auto h-screen flex-col hidden">
+            <h1
+                id="CompareCurrencies"
+                class="m-10 text-3xl font-bold text-slate-950 dark:text-white"
+            >
                 Compare Currencies
             </h1>
-            <div
-                id="compare-container"
-                class="mx-10 grid grid-cols-1 gap-5"
-            ></div>
+            <div id="compare-container" class="mx-10"></div>
+        </div>
+
+        <div id="login" class="body w-full mx-auto h-screen">
+            <div class="p-10 h-full grid md:grid-cols-2">
+                <div class="flex justify-end">
+                    <div
+                        class="h-full w-full flex flex-col justify-center items-center"
+                    >
+                        <img
+                            src="images/logo.png"
+                            alt="CryptoPulse logo"
+                            class="flex h-auto w-auto md:max-h-96 max-h-80"
+                        />
+                        <h1
+                            id="title"
+                            class="m-10 text-7xl font-bold text-slate-950 dark:text-white hidden md:block"
+                        >
+                            Crypto Pulse
+                        </h1>
+                    </div>
+                    <div
+                        class="flex h-full bg-gray-300 dark:bg-gray-600 hidden md:block"
+                        style="width: 1px; margin: 0 10px"
+                    ></div>
+                </div>
+
+                <div class="flex flex-col justify-center">
+                    <h1
+                        id="login-title"
+                        class="mx-10 text-5xl font-bold text-slate-950 dark:text-white"
+                    >
+                        Log In
+                    </h1>
+                    <input
+                        type="text"
+                        id="login-username"
+                        class="mx-10 mt-10 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Username"
+                    />
+                    <input
+                        type="password"
+                        id="login-password"
+                        class="m-10 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Password"
+                    />
+                    <button
+                        id="LogInButton"
+                        class="mx-10 text-gray-800 font-bold p-2 rounded-lg dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                        Log In
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="signUp" class="body w-full mx-auto h-screen flex-col hidden">
+            signUp
         </div>
 
         <script type="module" src="main.js"></script>
