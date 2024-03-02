@@ -10398,6 +10398,7 @@ export const translations = {
         SignUpButton: "Sign Up",
         darkMode: "Dark Mode",
         lightMode: "Light Mode",
+        defaultDevice: "Default Device",
         CoinsButton: "Coins",
         NewsButton: "News",
         CompareButton: "Compare",
@@ -10419,6 +10420,7 @@ export const translations = {
         Username: "Username",
         Password: "Password",
         ConfirmPassword: "Confirm Password",
+        showPassword: "Show Password",
         Mail: "Mail",
         signupFirstname: "First Name",
         signupLastname: "Last Name",
@@ -10440,6 +10442,7 @@ export const translations = {
         SignUpButton: "Anmeldung",
         darkMode: "Dunkel",
         lightMode: "Licht",
+        defaultDevice: "Standardgerät",
         CoinsButton: "Münzen",
         NewsButton: "Nachricht",
         CompareButton: "vergleichen",
@@ -10461,6 +10464,7 @@ export const translations = {
         Username: "Nutzername",
         Password: "Passwort",
         ConfirmPassword: "Bestätige das Passwort",
+        showPassword: "Passwort anzeigen",
         Mail: "Mail",
         signupFirstname: "Vorname",
         signupLastname: "Nachname",
@@ -10483,6 +10487,7 @@ export const translations = {
         SignUpButton: "Iscrizione",
         darkMode: "Buio",
         lightMode: "Luce",
+        defaultDevice: "Dispositivo predefinito",
         CoinsButton: "Monete",
         NewsButton: "Notizia",
         CompareButton: "Confrontare",
@@ -10504,6 +10509,7 @@ export const translations = {
         Username: "Nome utente",
         Password: "Parola d'ordine",
         ConfirmPassword: "Conferma password",
+        showPassword: "Mostra password",
         Mail: "Posta",
         signupFirstname: "Nome di battesimo",
         signupLastname: "Cognome",
@@ -10525,6 +10531,7 @@ export const translations = {
         SignUpButton: "サインアップ",
         darkMode: "暗い",
         lightMode: "光",
+        defaultDevice: "デフォルトデバイス",
         CoinsButton: "コイン",
         NewsButton: "ニュース",
         CompareButton: "比較する",
@@ -10546,6 +10553,7 @@ export const translations = {
         Username: "ユーザー名",
         Password: "パスワード",
         ConfirmPassword: "パスワードを認証する",
+        showPassword: "パスワードを表示",
         Mail: "メール",
         signupFirstname: "ファーストネーム",
         signupLastname: "苗字",
@@ -10920,24 +10928,77 @@ function buildTable(currency) {
 function setTheme() {
     const currentTheme = localStorage.getItem("theme");
 
+    const themeChangeButtonAuth = document.getElementById(
+        "themeChangeButton-Auth",
+    );
+    const themeChangeButtonUnAuth = document.getElementById(
+        "themeChangeButton-UnAuth",
+    );
+    const themeDropdownMenu = document.getElementById("theme-dropdown-menu");
+    const lightModeButton = document.getElementById("lightModeButton");
+    const darkModeButton = document.getElementById("darkModeButton");
+
     changeTheme(currentTheme === "dark" ? "dark" : "light");
 
-    themeButton.addEventListener("click", () => {
-        const isDarkMode = document.body.classList.contains("dark");
-        changeTheme(isDarkMode ? "light" : "dark");
+    themeChangeButtonAuth.addEventListener("click", () => {
+        const rect = themeChangeButtonAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        themeDropdownMenu.style.left = rect.left + "px";
+        themeDropdownMenu.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        themeDropdownMenu.classList.toggle("hidden");
+    });
+    themeChangeButtonUnAuth.addEventListener("click", () => {
+        const rect = themeChangeButtonUnAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        themeDropdownMenu.style.left = rect.left + "px";
+        themeDropdownMenu.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        themeDropdownMenu.classList.toggle("hidden");
+    });
+
+    lightModeButton.addEventListener("click", () => {
+        changeTheme("light");
+        themeDropdownMenu.classList.add("hidden");
+    });
+
+    darkModeButton.addEventListener("click", () => {
+        changeTheme("dark");
+        themeDropdownMenu.classList.add("hidden");
+    });
+
+    // Add a global click event listener to close the dropdown when clicking outside the button and dropdown
+    document.addEventListener("click", function (event) {
+        if (
+            !themeChangeButtonUnAuth.contains(event.target) &&
+            !themeChangeButtonAuth.contains(event.target) &&
+            !themeDropdownMenu.contains(event.target)
+        ) {
+            // Close the dropdown if the click is outside the button and dropdown
+            themeDropdownMenu.classList.add("hidden");
+        }
     });
 }
 
 function changeTheme(theme) {
-    const themeButton = document.getElementById("themeButton");
-    const language = localStorage.getItem("language");
+    const themeChangeButtonAuth = document.getElementById(
+        "themeChangeButton-Auth",
+    );
+    const themeChangeButtonUnAuth = document.getElementById(
+        "themeChangeButton-UnAuth",
+    );
+
     if (theme === "dark") {
         document.body.classList.add("dark");
-        themeButton.innerHTML = translations[language].lightMode;
+        themeChangeButtonAuth.innerHTML = "dark_mode";
+        themeChangeButtonUnAuth.innerHTML = "dark_mode";
         localStorage.setItem("theme", "dark");
     } else {
         document.body.classList.remove("dark");
-        themeButton.innerHTML = translations[language].darkMode;
+        themeChangeButtonAuth.innerHTML = "light_mode";
+        themeChangeButtonUnAuth.innerHTML = "light_mode";
         localStorage.setItem("theme", "light");
     }
 }
@@ -11320,16 +11381,12 @@ function buildNewsList(news) {
 // Function to change language
 function changeLanguage(language) {
     localStorage.setItem("language", language); // Save selected language to local storage
-    const theme = localStorage.getItem("theme");
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     // Update text content of elements based on language
     document.getElementById("LogInButton").textContent =
         translations[language]["LogInButton"];
     document.getElementById("SignUpButton").textContent =
         translations[language]["SignUpButton"];
-    document.getElementById("themeButton").textContent =
-        theme === "dark"
-            ? translations[language]["darkMode"]
-            : translations[language]["lightMode"];
     document.getElementById("CoinsButton").textContent =
         translations[language]["CoinsButton"];
     document.getElementById("NewsButton").textContent =
@@ -11389,6 +11446,9 @@ function changeLanguage(language) {
     //signup-confirm-password
     document.getElementById("signup-password-confirm").placeholder =
         translations[language]["ConfirmPassword"];
+    //showPassword
+    document.getElementById("showPassword").textContent =
+        translations[language]["showPassword"];
     //SignUp-Button
     document.getElementById("SignUp-Button").textContent =
         translations[language]["SignUpButton"];
@@ -11398,14 +11458,22 @@ function changeLanguage(language) {
     //signup-lastname
     document.getElementById("signup-lastname").placeholder =
         translations[language]["signupLastname"];
+    document.getElementById("lightModeButton").innerHTML =
+        "<span class='material-symbols-outlined mr-2'>light_mode</span>" +
+        translations[language]["lightMode"];
+    document.getElementById("darkModeButton").innerHTML =
+        "<span class='material-symbols-outlined mr-2'>dark_mode</span>" +
+        translations[language]["darkMode"];
 
     // Get the flag SVG and language name for the selected language
     var selectedOption = document.querySelector(`#lang-${language}`);
     var flagSvg = selectedOption.querySelector("svg").outerHTML;
     var languageName = selectedOption.textContent;
 
-    document.getElementById("flagContainer").innerHTML = flagSvg;
-    document.getElementById("languageName").textContent = languageName;
+    document.getElementById("flagContainer-Auth").innerHTML = flagSvg;
+    document.getElementById("flagContainer-UnAuth").innerHTML = flagSvg;
+    document.getElementById("languageName-Auth").textContent = languageName;
+    document.getElementById("languageName-UnAuth").textContent = languageName;
     // Hide the dropdown menu
     var dropdownMenu = document.getElementById("language-dropdown-menu");
     dropdownMenu.classList.add("hidden");

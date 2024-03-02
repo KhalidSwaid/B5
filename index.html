@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Crypto Pulse</title>
         <link rel="stylesheet" href="style.css" />
+
         <!-- Dark Mode Class -->
         <link
             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind-dark.min.css"
@@ -15,6 +16,10 @@
         <link
             href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind-light.min.css"
             rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
     </head>
 
@@ -29,7 +34,7 @@
             />
             <div class="absolute loader"></div>
         </div>
-        <div id="mainBody" class="hidden">
+        <div id="mainBody" class="hidden h-screen">
             <nav
                 id="authenticatedNavBar"
                 class="bg-white border-gray-200 dark:bg-gray-900 hidden"
@@ -235,45 +240,37 @@
                                         </li>
                                         <li>
                                             <a
-                                                id="SettingsButton"
-                                                href="#"
-                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                >Settings</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a
                                                 id="EarningsButton"
                                                 href="#"
                                                 class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                                 >Earnings</a
                                             >
                                         </li>
-                                        <li>
-                                            <button
-                                                id="themeButton"
-                                                class="w- px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                                style="
-                                                    width: -webkit-fill-available;
-                                                    text-align: start;
-                                                "
-                                            ></button>
-                                        </li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
                     </div>
+
                     <div
                         class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse"
                     >
+                        <button
+                            id="themeChangeButton-Auth"
+                            type="button"
+                            class="text-black dark:text-white material-symbols-outlined hover:bg-gray-100 p-1 hover:rounded-full dark:hover:bg-gray-700"
+                            data-dropdown-toggle="theme-dropdown-menu"
+                        >
+                            light_mode
+                        </button>
+
                         <button
                             id="languageButton-Auth"
                             type="button"
                             data-dropdown-toggle="language-dropdown-menu"
                             class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white mr-4"
                         >
-                            <span id="flagContainer">
+                            <span id="flagContainer-Auth">
                                 <svg
                                     class="w-4 h-4 rounded-full me-3"
                                     aria-hidden="true"
@@ -336,7 +333,7 @@
                                 </svg>
                             </span>
 
-                            <span id="languageName">English (US)</span>
+                            <span id="languageName-Auth">English (US)</span>
                             <span class="dropdown-arrow">▾</span>
                             <!-- Dropdown arrow -->
                         </button>
@@ -382,7 +379,7 @@
                                 </li>
                                 <li>
                                     <a
-                                        id="SettingsButton1"
+                                        id="SettingsButton"
                                         href="#"
                                         class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                                         >Settings</a
@@ -451,12 +448,21 @@
                         class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse"
                     >
                         <button
+                            id="themeChangeButton-UnAuth"
+                            type="button"
+                            class="text-black dark:text-white material-symbols-outlined hover:bg-gray-100 p-1 hover:rounded-full dark:hover:bg-gray-700"
+                            data-dropdown-toggle="theme-dropdown-menu"
+                        >
+                            light_mode
+                        </button>
+
+                        <button
                             id="languageButton-UnAuth"
                             type="button"
                             data-dropdown-toggle="language-dropdown-menu"
                             class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white mr-4"
                         >
-                            <span id="flagContainer">
+                            <span id="flagContainer-UnAuth">
                                 <svg
                                     class="w-4 h-4 rounded-full me-3"
                                     aria-hidden="true"
@@ -519,7 +525,7 @@
                                 </svg>
                             </span>
 
-                            <span id="languageName">English (US)</span>
+                            <span id="languageName-UnAuth">English (US)</span>
                             <span class="dropdown-arrow">▾</span>
                             <!-- Dropdown arrow -->
                         </button>
@@ -541,6 +547,40 @@
                     </div>
                 </div>
             </nav>
+
+            <div
+                class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 absolute origin-top left-0 mt-2"
+                id="theme-dropdown-menu"
+            >
+                <ul class="py-2 font-medium" role="none">
+                    <li>
+                        <button
+                            id="lightModeButton"
+                            type="button"
+                            class="h-10 px-5 flex items-center text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                            style="width: -webkit-fill-available"
+                        >
+                            <span class="material-symbols-outlined mr-2">
+                                light_mode
+                            </span>
+                            Light Mode
+                        </button>
+                    </li>
+                    <li>
+                        <button
+                            id="darkModeButton"
+                            type="button"
+                            class="h-10 px-5 flex items-center text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                            style="width: -webkit-fill-available"
+                        >
+                            <span class="material-symbols-outlined mr-2">
+                                dark_Mode
+                            </span>
+                            Dark Mode
+                        </button>
+                    </li>
+                </ul>
+            </div>
 
             <div
                 class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 absolute origin-top left-0 mt-2"
@@ -783,7 +823,7 @@
                 </div>
             </div>
 
-            <div id="news" class="body w-full mx-auto h-screen flex-col hidden">
+            <div id="news" class="body w-full mx-auto flex-col hidden">
                 <h1
                     id="LatestNews"
                     class="m-10 text-3xl font-bold text-slate-950 dark:text-white"
@@ -792,14 +832,11 @@
                 </h1>
                 <div
                     id="news-container"
-                    class="mx-5 md:mx-10 grid grid-cols-1 gap-5"
+                    class="mx-5 p-5 md:mx-10 grid grid-cols-1 gap-5 overflow-y-auto border border-gray-300 rounded-md"
                 ></div>
             </div>
 
-            <div
-                id="compare"
-                class="body w-full mx-auto h-screen flex-col hidden"
-            >
+            <div id="compare" class="body w-full mx-auto flex-col hidden">
                 <h1
                     id="CompareCurrencies"
                     class="m-10 text-3xl font-bold text-slate-950 dark:text-white"
@@ -903,40 +940,53 @@
                             class="mx-10 mt-10 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Mail"
                         />
-                        <input
-                            type="text"
-                            id="signup-firstname"
-                            class="mx-10 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="First Name"
-                        />
-                        <input
-                            type="text"
-                            id="signup-lastname"
-                            class="mx-10 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Last Name"
-                        />
+                        <div class="flex flex-row w-full">
+                            <input
+                                type="text"
+                                id="signup-firstname"
+                                class="w-full ml-10 mt-5 mr-2 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="First Name"
+                            />
+                            <input
+                                type="text"
+                                id="signup-lastname"
+                                class="w-full mr-10 ml-2 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Last Name"
+                            />
+                        </div>
                         <input
                             type="text"
                             id="signup-username"
                             class="mx-10 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Username"
                         />
-                        <input
-                            type="password"
-                            id="signup-password"
-                            class="mx-10 my-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Password"
-                        />
-                        <input
-                            type="password"
-                            id="signup-password-confirm"
-                            class="mx-10 mb-10 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Confirm Password"
-                        />
+                        <div class="flex flex-row w-full">
+                            <input
+                                type="password"
+                                id="signup-password"
+                                class="w-full ml-10 mr-2 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Password"
+                            />
+                            <input
+                                type="password"
+                                id="signup-password-confirm"
+                                class="w-full mr-10 ml-2 mt-5 h-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Confirm Password"
+                            />
+                        </div>
+
+                        <div class="flex ml-10 mt-5 gap-2">
+                            <input id="showPasswordToggle" type="checkbox" />
+                            <label
+                                id="showPassword"
+                                class="text-gray-800 dark:text-white"
+                                >Show Password</label
+                            >
+                        </div>
 
                         <button
                             id="SignUp-Button"
-                            class="mx-10 text-gray-800 font-bold py-2 px-5 rounded-lg dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex justify-start"
+                            class="m-10 text-gray-800 font-bold py-2 px-5 rounded-lg dark:text-white bg-gray-200 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex justify-start"
                         >
                             Sign Up
                         </button>

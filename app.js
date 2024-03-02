@@ -29,6 +29,7 @@ const db = firestore.collection("users");
 
 let logInButton = document.getElementById("LogIn-Button");
 let signUpButton = document.getElementById("SignUp-Button");
+let showPasswordToggle = document.getElementById("showPasswordToggle");
 
 logInButton.addEventListener("click", async function () {
     let username = document.getElementById("login-username").value;
@@ -60,6 +61,20 @@ function validateLogIn(username, password) {
 
     return true;
 }
+
+showPasswordToggle.addEventListener("click", function () {
+    let password = document.getElementById("signup-password");
+    let confirmPassword = document.getElementById("signup-password-confirm");
+
+    if (showPasswordToggle.checked) {
+        console.log(showPasswordToggle.checked);
+        password.setAttribute("type", "text");
+        confirmPassword.setAttribute("type", "text");
+    } else {
+        password.setAttribute("type", "password");
+        confirmPassword.setAttribute("type", "password");
+    }
+});
 
 signUpButton.addEventListener("click", async function () {
     let email = document.getElementById("signup-mail").value;
