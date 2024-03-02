@@ -10995,15 +10995,25 @@ function setUpDropdown() {
 
 //setup language toggle bar button
 function setUpLanguageButton() {
-    const languageButton = document.getElementById("languageButton"); //get language toggle bar button
+    const authenticated = localStorage.getItem("user");
+    let languageButtonAuth = document.getElementById("languageButton-Auth");
+    let languageButtonUnAuth = document.getElementById("languageButton-UnAuth");
+
     const languageDropdown = document.getElementById("language-dropdown-menu"); //get language dropdown menu
 
     // Add a click event listener to the language dropdown toggle button
-    languageButton.addEventListener("click", function () {
-        console.log("====================================");
-        console.log("languageButton");
-        console.log("====================================");
-        const rect = languageButton.getBoundingClientRect();
+    languageButtonAuth.addEventListener("click", function () {
+        const rect = languageButtonAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        languageDropdown.style.left = rect.left + "px";
+        languageDropdown.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        languageDropdown.classList.toggle("hidden");
+    });
+    // Add a click event listener to the language dropdown toggle button
+    languageButtonUnAuth.addEventListener("click", function () {
+        const rect = languageButtonUnAuth.getBoundingClientRect();
         // Calculate the position to open the dropdown below the button
         languageDropdown.style.left = rect.left + "px";
         languageDropdown.style.top = rect.bottom + "px";
@@ -11014,7 +11024,8 @@ function setUpLanguageButton() {
     // Add a global click event listener to close the dropdown when clicking outside the button and dropdown
     document.addEventListener("click", function (event) {
         if (
-            !languageButton.contains(event.target) &&
+            !languageButtonAuth.contains(event.target) &&
+            !languageButtonUnAuth.contains(event.target) &&
             !languageDropdown.contains(event.target)
         ) {
             // Close the dropdown if the click is outside the button and dropdown
