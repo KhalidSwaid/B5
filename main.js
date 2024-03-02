@@ -10392,7 +10392,7 @@ const mockNews = {
     HasWarning: false,
 };
 
-const translations = {
+export const translations = {
     en: {
         LogInButton: "Log In",
         SignUpButton: "Sign Up",
@@ -10418,10 +10418,26 @@ const translations = {
         CompareCurrencies: "Compare Currencies",
         Username: "Username",
         Password: "Password",
+        ConfirmPassword: "Confirm Password",
+        Mail: "Mail",
+        signupFirstname: "First Name",
+        signupLastname: "Last Name",
+
+        //error messages
+        errorFillAllFields: "Please fill in all the fields!",
+        errorPasswordsDoNotMatch: "Passwords do not match!",
+        errorUsernameExists: "Username already exists!",
+        errorEmailExists: "Email already exists!",
+        somethingWentWrong: "Something went wrong! Try again later!",
+        errorUserNotFound: "User not found!",
+        errorWrongPassword: "Wrong password!",
+
+        //success messages
+        successSignUp: "You have successfully signed up!",
     },
     de: {
-        LogInButton: "Anmeldung",
-        SignUpButton: "Melden Sie sich an",
+        LogInButton: "Melden Sie sich an",
+        SignUpButton: "Anmeldung",
         darkMode: "Dunkel",
         lightMode: "Licht",
         CoinsButton: "Münzen",
@@ -10444,6 +10460,23 @@ const translations = {
         CompareCurrencies: "Währungen vergleichen",
         Username: "Nutzername",
         Password: "Passwort",
+        ConfirmPassword: "Bestätige das Passwort",
+        Mail: "Mail",
+        signupFirstname: "Vorname",
+        signupLastname: "Nachname",
+
+        //error messages
+        errorFillAllFields: "Bitte füllen Sie alle Felder aus!",
+        errorPasswordsDoNotMatch: "Passwörter stimmen nicht überein!",
+        errorUsernameExists: "Benutzername existiert bereits!",
+        errorEmailExists: "E-Mail existiert bereits!",
+        somethingWentWrong:
+            "Etwas ist schief gelaufen! Versuchen Sie es später erneut!",
+        errorUserNotFound: "Benutzer nicht gefunden!",
+        errorWrongPassword: "Falsches Passwort!",
+
+        //success messages
+        successSignUp: "Sie haben sich erfolgreich angemeldet!",
     },
     it: {
         LogInButton: "Login",
@@ -10470,6 +10503,22 @@ const translations = {
         CompareCurrencies: "Confronta le valute",
         Username: "Nome utente",
         Password: "Parola d'ordine",
+        ConfirmPassword: "Conferma password",
+        Mail: "Posta",
+        signupFirstname: "Nome di battesimo",
+        signupLastname: "Cognome",
+
+        //error messages
+        errorFillAllFields: "Si prega di compilare tutti i campi!",
+        errorPasswordsDoNotMatch: "Le password non corrispondono!",
+        errorUsernameExists: "Il nome utente esiste già!",
+        errorEmailExists: "L'email esiste già!",
+        somethingWentWrong: "Qualcosa è andato storto! Riprova più tardi!",
+        errorUserNotFound: "Utente non trovato!",
+        errorWrongPassword: "Password errata!",
+
+        //success messages
+        successSignUp: "Ti sei registrato con successo!",
     },
     zh: {
         LogInButton: "ログイン",
@@ -10496,12 +10545,30 @@ const translations = {
         CompareCurrencies: "通貨を比較する",
         Username: "ユーザー名",
         Password: "パスワード",
+        ConfirmPassword: "パスワードを認証する",
+        Mail: "メール",
+        signupFirstname: "ファーストネーム",
+        signupLastname: "苗字",
+
+        //error messages
+        errorFillAllFields: "すべてのフィールドに入力してください！",
+        errorPasswordsDoNotMatch: "パスワードが一致しません！",
+        errorUsernameExists: "ユーザー名はすでに存在します！",
+        errorEmailExists: "メールはすでに存在します！",
+        somethingWentWrong: "何かが間違っていました！後でやり直してください！",
+        errorUserNotFound: "ユーザーが見つかりません！",
+        errorWrongPassword: "パスワードが間違っています！",
+
+        //success messages
+        successSignUp: "正常にサインアップしました！",
     },
 };
 
 let cryptocurrencies = [];
 
 document.addEventListener("DOMContentLoaded", function () {
+    authenticatedUser();
+
     setUpHandleChangePage(); //setup pagination functionality
 
     setTheme(); // Set theme on page load
@@ -10517,6 +10584,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDataAndBuildTable(); // Fetch data and build the table
 
     fetchDataAndBuildNews(); // Fetch news and build the news list
+
+    storageChange(); //setup storage change
 });
 
 //build the currencies table
@@ -10836,7 +10905,7 @@ function buildTable(currency) {
                     },
                 },
                 hover: {
-                    mode: null, // This disables hover effects
+                    // mode: null, // This disables hover effects
                 },
                 maintainAspectRatio: false,
             },
@@ -10928,6 +10997,9 @@ function setUpLanguageButton() {
 
     // Add a click event listener to the language dropdown toggle button
     languageButton.addEventListener("click", function () {
+        console.log("====================================");
+        console.log("languageButton");
+        console.log("====================================");
         const rect = languageButton.getBoundingClientRect();
         // Calculate the position to open the dropdown below the button
         languageDropdown.style.left = rect.left + "px";
@@ -10959,6 +11031,39 @@ function setUpLanguageButton() {
             changeLanguage(selectedLang); // Change language
         });
     });
+}
+
+export function homePage() {
+    const coinsPageButton = document.getElementById("CoinsButton");
+    const coinsPage = document.getElementById("coins");
+
+    const newsPageButton = document.getElementById("NewsButton");
+    const newsPage = document.getElementById("news");
+
+    const comparePageButton = document.getElementById("CompareButton");
+    const comparePage = document.getElementById("compare");
+
+    const logInPageButton = document.getElementById("LogInButton"); //get the login button
+    const logInPage = document.getElementById("login");
+
+    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
+    const signUpPage = document.getElementById("signUp");
+
+    const notSelectPageButtonClassList =
+        "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    const selectPageButtonClassList =
+        "block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
+    newsPageButton.classList = notSelectPageButtonClassList;
+    newsPage.classList.add("hidden");
+
+    comparePageButton.classList = notSelectPageButtonClassList;
+    comparePage.classList.add("hidden");
+
+    logInPage.classList.add("hidden");
+    signUpPage.classList.add("hidden");
+
+    coinsPageButton.classList = selectPageButtonClassList;
+    coinsPage.classList.remove("hidden");
 }
 
 //handle change page function
@@ -11219,8 +11324,32 @@ function changeLanguage(language) {
         translations[language]["Username"];
     document.getElementById("login-password").placeholder =
         translations[language]["Password"];
-    document.getElementById("LogInButton").textContent =
+    document.getElementById("LogIn-Button").textContent =
         translations[language]["LogInButton"];
+    //signup-title
+    document.getElementById("signup-title").textContent =
+        translations[language]["SignUpButton"];
+    //signup-mail
+    document.getElementById("signup-mail").placeholder =
+        translations[language]["Mail"];
+    //signup-username
+    document.getElementById("signup-username").placeholder =
+        translations[language]["Username"];
+    //signup-password
+    document.getElementById("signup-password").placeholder =
+        translations[language]["Password"];
+    //signup-confirm-password
+    document.getElementById("signup-password-confirm").placeholder =
+        translations[language]["ConfirmPassword"];
+    //SignUp-Button
+    document.getElementById("SignUp-Button").textContent =
+        translations[language]["SignUpButton"];
+    //signup-firstname
+    document.getElementById("signup-firstname").placeholder =
+        translations[language]["signupFirstname"];
+    //signup-lastname
+    document.getElementById("signup-lastname").placeholder =
+        translations[language]["signupLastname"];
 
     // Get the flag SVG and language name for the selected language
     var selectedOption = document.querySelector(`#lang-${language}`);
@@ -11242,4 +11371,86 @@ function setUpLanguage() {
         localStorage.setItem("language", "en");
         changeLanguage("en");
     }
+}
+
+export function authenticatedUser() {
+    let user = localStorage.getItem("user");
+    if (!user) return;
+
+    user = JSON.parse(user);
+    //LogInButton
+    document.getElementById("LogInButton").classList.add("hidden");
+    //SignUpButton
+    document.getElementById("SignUpButton").classList.add("hidden");
+
+    const Username = document.getElementById("username");
+    Username.innerHTML = user["username"];
+
+    const fullnaem = document.getElementById("fullname");
+    fullnaem.innerHTML = user["firstName"] + " " + user["lastName"];
+
+    const email = document.getElementById("userEmail");
+    email.innerHTML = user["email"];
+
+    const userIcon = document.getElementById("userIcon");
+
+    const userDataHover = document.getElementById("userDataHover");
+
+    // Add a mouseover event listener to the user dropdown toggle user button
+    userIcon.addEventListener("mouseover", function () {
+        const rect = userIcon.getBoundingClientRect();
+
+        userDataHover.style.position = "absolute";
+        userDataHover.style.right = 30 + "px";
+        userDataHover.style.top = rect.bottom + "px";
+
+        // userDataHover.style.width = `${rect.width}px`;
+
+        userDataHover.classList.remove("hidden");
+    });
+
+    //userIcon
+    document.getElementById("userIcon").classList.remove("hidden");
+
+    const SignOutButton = document.getElementById("SignOutButton");
+
+    SignOutButton.addEventListener("click", function () {
+        SignOut();
+    });
+
+    document.addEventListener("mouseout", function (event) {
+        // console.log("mouseout");
+        if (
+            !userIcon.contains(event.target) &&
+            !userDataHover.contains(event.target)
+        ) {
+            userDataHover.classList.add("hidden");
+        }
+    });
+}
+
+function SignOut() {
+    localStorage.removeItem("user");
+
+    //LogInButton
+    document.getElementById("LogInButton").classList.remove("hidden");
+    //SignUpButton
+    document.getElementById("SignUpButton").classList.remove("hidden");
+
+    //userIcon
+    document.getElementById("userIcon").classList.add("hidden");
+}
+
+// listen for the local storage event
+function storageChange() {
+    window.addEventListener("storage", function (e) {
+        console.log("storage change", e);
+        if (e.key === "user") {
+            if (e.newValue) {
+                authenticatedUser();
+            } else {
+                SignOut();
+            }
+        }
+    });
 }
