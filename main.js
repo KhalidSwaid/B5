@@ -10586,6 +10586,9 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDataAndBuildNews(); // Fetch news and build the news list
 
     storageChange(); //setup storage change
+
+    document.getElementById("loaderBody").classList.add("hidden");
+    document.getElementById("mainBody").classList.remove("hidden");
 });
 
 //build the currencies table
@@ -11066,6 +11069,40 @@ export function homePage() {
     coinsPage.classList.remove("hidden");
 }
 
+export function loginPage() {
+    const coinsPageButton = document.getElementById("CoinsButton");
+    const coinsPage = document.getElementById("coins");
+
+    const newsPageButton = document.getElementById("NewsButton");
+    const newsPage = document.getElementById("news");
+
+    const comparePageButton = document.getElementById("CompareButton");
+    const comparePage = document.getElementById("compare");
+
+    const logInPageButton = document.getElementById("LogInButton"); //get the login button
+    const logInPage = document.getElementById("login");
+
+    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
+    const signUpPage = document.getElementById("signUp");
+
+    const notSelectPageButtonClassList =
+        "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    const selectPageButtonClassList =
+        "block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
+    coinsPageButton.classList = notSelectPageButtonClassList;
+    coinsPage.classList.add("hidden");
+
+    newsPageButton.classList = notSelectPageButtonClassList;
+    newsPage.classList.add("hidden");
+
+    comparePageButton.classList = notSelectPageButtonClassList;
+    comparePage.classList.add("hidden");
+
+    signUpPage.classList.add("hidden");
+
+    logInPage.classList.remove("hidden");
+}
+
 //handle change page function
 function setUpHandleChangePage() {
     const coinsPageButton = document.getElementById("CoinsButton");
@@ -11409,8 +11446,13 @@ export function authenticatedUser() {
         userDataHover.classList.remove("hidden");
     });
 
-    //userIcon
-    document.getElementById("userIcon").classList.remove("hidden");
+    //unAuthenticatedNavBar
+    document.getElementById("unAuthenticatedNavBar").classList.add("hidden");
+
+    //authenticatedNavBar
+    document.getElementById("authenticatedNavBar").classList.remove("hidden");
+
+    homePage();
 
     const SignOutButton = document.getElementById("SignOutButton");
 
@@ -11432,13 +11474,22 @@ export function authenticatedUser() {
 function SignOut() {
     localStorage.removeItem("user");
 
+    const userDataHover = document.getElementById("userDataHover");
+
     //LogInButton
     document.getElementById("LogInButton").classList.remove("hidden");
     //SignUpButton
     document.getElementById("SignUpButton").classList.remove("hidden");
 
-    //userIcon
-    document.getElementById("userIcon").classList.add("hidden");
+    //unAuthenticatedNavBar
+    document.getElementById("unAuthenticatedNavBar").classList.remove("hidden");
+
+    //authenticatedNavBar
+    document.getElementById("authenticatedNavBar").classList.add("hidden");
+
+    userDataHover.classList.add("hidden");
+
+    loginPage();
 }
 
 // listen for the local storage event

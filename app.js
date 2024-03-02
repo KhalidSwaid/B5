@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-import { homePage, translations } from "./main";
+import { homePage, loginPage, translations } from "./main";
 import { authenticatedUser } from "./main";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -183,10 +183,14 @@ function signupSuccessMessage() {
     setTimeout(() => {
         errorMessage.innerHTML = "";
         errorMessage.style.color = "red";
+        clearSignUpFields();
+        loginPage();
     }, 2000);
 }
 
 async function logIn(username, password) {
+    let usernameInput = document.getElementById("login-username");
+    let passwordInput = document.getElementById("login-password");
     let language = localStorage.getItem("language") || "en";
     let loginButton = document.getElementById("LogIn-Button");
     let errorMessage = document.getElementById("login-error");
@@ -210,8 +214,19 @@ async function logIn(username, password) {
             localStorage.setItem("user", JSON.stringify(user));
             authenticatedUser();
             homePage();
+            usernameInput.value = "";
+            passwordInput.value = "";
         }
         loginButton.textContent = translations[language]["LogInButton"];
         loginButton.disabled = false;
     });
+}
+
+function clearSignUpFields() {
+    document.getElementById("signup-mail").value = "";
+    document.getElementById("signup-firstname").value = "";
+    document.getElementById("signup-lastname").value = "";
+    document.getElementById("signup-username").value = "";
+    document.getElementById("signup-password").value = "";
+    document.getElementById("signup-password-confirm").value = "";
 }
