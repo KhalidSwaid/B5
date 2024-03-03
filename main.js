@@ -11009,19 +11009,41 @@ function setUpSearch() {
     const searchInput = document.getElementById("search-navbar"); //get the search input element
     if (searchInput) {
         searchInput.addEventListener("input", function (event) {
+            const page = document.getElementById("coins");
+            const newsPage = document.getElementById("news");
             const searchTerm = event.target.value;
-            let filteredCurrencies = [];
-            cryptocurrencies.forEach((currency) => {
-                const lowerCaseName = currency.name.toLowerCase();
-                const lowerCaseSymbol = currency.symbol.toLowerCase();
-                if (
-                    lowerCaseName.includes(searchTerm.toLowerCase()) ||
-                    lowerCaseSymbol.includes(searchTerm.toLowerCase())
-                ) {
-                    filteredCurrencies.push(currency);
-                }
-            });
-            buildTable(filteredCurrencies);
+
+            if (!page.classList.contains("hidden")) {
+                let filteredCurrencies = [];
+                cryptocurrencies.forEach((currency) => {
+                    const lowerCaseName = currency.name.toLowerCase();
+                    const lowerCaseSymbol = currency.symbol.toLowerCase();
+                    if (
+                        lowerCaseName.includes(searchTerm.toLowerCase()) ||
+                        lowerCaseSymbol.includes(searchTerm.toLowerCase())
+                    ) {
+                        filteredCurrencies.push(currency);
+                    }
+                });
+                buildTable(filteredCurrencies);
+                return;
+            } else if (!newsPage.classList.contains("hidden")) {
+                let filteredNews = [];
+                mockNews.Data.forEach((news) => {
+                    const lowerCaseTitle = news.title.toLowerCase();
+                    const lowerCaseBody = news.body.toLowerCase();
+                    const lowerCaseTags = news.tags.toLowerCase().split("|");
+                    if (
+                        lowerCaseTitle.includes(searchTerm.toLowerCase()) ||
+                        lowerCaseTags.includes(searchTerm.toLowerCase()) ||
+                        lowerCaseBody.includes(searchTerm.toLowerCase())
+                    ) {
+                        filteredNews.push(news);
+                    }
+                });
+                buildNewsList(filteredNews);
+                return;
+            }
         });
     }
 }
@@ -11118,10 +11140,8 @@ export function homePage() {
     const comparePageButton = document.getElementById("CompareButton");
     const comparePage = document.getElementById("compare");
 
-    const logInPageButton = document.getElementById("LogInButton"); //get the login button
     const logInPage = document.getElementById("login");
 
-    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
     const signUpPage = document.getElementById("signUp");
 
     const notSelectPageButtonClassList =
@@ -11151,11 +11171,11 @@ export function loginPage() {
     const comparePageButton = document.getElementById("CompareButton");
     const comparePage = document.getElementById("compare");
 
-    const logInPageButton = document.getElementById("LogInButton"); //get the login button
     const logInPage = document.getElementById("login");
 
-    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
     const signUpPage = document.getElementById("signUp");
+
+    const settingsPage = document.getElementById("settings");
 
     const notSelectPageButtonClassList =
         "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
@@ -11171,6 +11191,7 @@ export function loginPage() {
     comparePage.classList.add("hidden");
 
     signUpPage.classList.add("hidden");
+    settingsPage.classList.add("hidden");
 
     logInPage.classList.remove("hidden");
 }
@@ -11192,6 +11213,9 @@ function setUpHandleChangePage() {
     const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
     const signUpPage = document.getElementById("signUp");
 
+    const settingsPageButton = document.getElementById("SettingsButton");
+    const settingsPage = document.getElementById("settings");
+
     const notSelectPageButtonClassList =
         "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
     const selectPageButtonClassList =
@@ -11207,6 +11231,7 @@ function setUpHandleChangePage() {
 
         logInPage.classList.add("hidden");
         signUpPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
 
         coinsPageButton.classList = selectPageButtonClassList;
         coinsPage.classList.remove("hidden");
@@ -11222,6 +11247,7 @@ function setUpHandleChangePage() {
 
         logInPage.classList.add("hidden");
         signUpPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
 
         newsPageButton.classList = selectPageButtonClassList;
         newsPage.classList.remove("hidden");
@@ -11236,6 +11262,7 @@ function setUpHandleChangePage() {
 
         logInPage.classList.add("hidden");
         signUpPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
 
         comparePageButton.classList = selectPageButtonClassList;
         comparePage.classList.remove("hidden");
@@ -11252,6 +11279,7 @@ function setUpHandleChangePage() {
         comparePage.classList.add("hidden");
 
         signUpPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
 
         logInPage.classList.remove("hidden");
     });
@@ -11267,8 +11295,25 @@ function setUpHandleChangePage() {
         comparePage.classList.add("hidden");
 
         logInPage.classList.add("hidden");
+        settingsPage.classList.add("hidden");
 
         signUpPage.classList.remove("hidden");
+    });
+
+    settingsPageButton.addEventListener("click", function (event) {
+        coinsPageButton.classList = notSelectPageButtonClassList;
+        coinsPage.classList.add("hidden");
+
+        newsPageButton.classList = notSelectPageButtonClassList;
+        newsPage.classList.add("hidden");
+
+        comparePageButton.classList = notSelectPageButtonClassList;
+        comparePage.classList.add("hidden");
+
+        logInPage.classList.add("hidden");
+        signUpPage.classList.add("hidden");
+
+        settingsPage.classList.remove("hidden");
     });
 }
 
