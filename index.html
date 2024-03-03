@@ -422,6 +422,7 @@
                         >
                     </div>
                     <button
+                        id="menuToggle"
                         data-collapse-toggle="navbar-search"
                         type="button"
                         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -447,7 +448,8 @@
                     </button>
 
                     <div
-                        class="flex items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse"
+                        id="navMenu"
+                        class="hidden md:flex flex-col md:flex-row items-center md:order-2 space-x-2 md:space-x-0 rtl:space-x-reverse"
                     >
                         <button
                             id="themeChangeButton-UnAuth"

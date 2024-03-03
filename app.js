@@ -247,3 +247,69 @@ function clearSignUpFields() {
     document.getElementById("signup-password").value = "";
     document.getElementById("signup-password-confirm").value = "";
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    // Function to update menu styles
+    function updateMenuStyles() {
+        const windowWidth = window.innerWidth;
+
+        if (windowWidth <= 768) {
+            // Mobile view styles
+            navMenu.style.flexDirection = "column";
+            navMenu.style.position = "absolute";
+            const rect = menuToggle.getBoundingClientRect();
+            navMenu.style.top = `${rect.bottom + window.scrollY}px`;
+            navMenu.style.left = `${rect.left + window.scrollX - 30}px`;
+
+            // Set each button to be displayed in a block (one below the other)
+            const buttons = navMenu.querySelectorAll("button");
+            buttons.forEach((button) => {
+                button.style.display = "block";
+                button.style.marginBottom = "8px";
+                button.style.padding = "8px";
+            });
+        } else {
+            // Remove mobile view styles
+            navMenu.style.flexDirection = "";
+            navMenu.style.position = "";
+            navMenu.style.top = "";
+            navMenu.style.left = "";
+
+            // Reset styles for each button
+            const buttons = navMenu.querySelectorAll("button");
+            buttons.forEach((button) => {
+                button.style.display = "";
+                button.style.marginBottom = "";
+                button.style.padding = "";
+            });
+        }
+    }
+
+    // Event listener for menuToggle click
+    menuToggle.addEventListener("click", function () {
+        navMenu.classList.toggle("hidden");
+        updateMenuStyles();
+    });
+
+    // Event listener for window resize
+    window.addEventListener("resize", function () {
+        updateMenuStyles();
+        if (window.innerWidth > 768) {
+            // Close the menu on larger screens
+            navMenu.classList.add("hidden");
+        }
+    });
+
+    // Close the dropdown when clicking outside of it
+    document.addEventListener("click", function (event) {
+        if (
+            !menuToggle.contains(event.target) &&
+            !navMenu.contains(event.target)
+        ) {
+            navMenu.classList.add("hidden");
+        }
+    });
+});
