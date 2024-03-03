@@ -45,7 +45,7 @@ logInButton.addEventListener("click", async function () {
     let language = localStorage.getItem("language") || "en";
     logInButton.innerHTML =
         translations[language]["LogInButton"] +
-        "<img class='flex justify-center items-center h-6 w-6 ml-3' src='images/spinner.gif' />";
+        "<div class='buttonLoader flex justify-center items-center my-auto ml-2'></div>";
     logInButton.disabled = true;
     errorMessage.textContent = "";
 
@@ -94,7 +94,7 @@ signUpButton.addEventListener("click", async function () {
     let language = localStorage.getItem("language") || "en";
     signUpButton.innerHTML =
         translations[language]["SignUpButton"] +
-        "<img class='flex justify-center items-center h-6 w-6 ml-3' src='images/spinner.gif' />";
+        "<div class='buttonLoader flex justify-center items-center my-auto ml-2'></div>";
     signUpButton.disabled = true;
     errorMessage.textContent = "";
 
