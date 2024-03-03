@@ -10392,14 +10392,198 @@ const mockNews = {
     HasWarning: false,
 };
 
+export const translations = {
+    en: {
+        LogInButton: "Log In",
+        SignUpButton: "Sign Up",
+        darkMode: "Dark Mode",
+        lightMode: "Light Mode",
+        defaultDevice: "Default Device",
+        CoinsButton: "Coins",
+        NewsButton: "News",
+        CompareButton: "Compare",
+        NameInTable: "Name",
+        PriceInTable: "Price",
+        MarketCapInTable: "Market Cap",
+        VolumeInTable: "Volume",
+        Last7DaysInTable: "Last 7 days",
+        CirculatingSupplyInTable: "Circulating Supply",
+        toolsName: "Tools",
+        DashBoardButton: "Dashboard",
+        SettingsButton: "Settings",
+        EarningsButton: "Earnings",
+        SignOutButton: "Sign Out",
+        searchPlaceholder: "Search...",
+        cryptocurrencyPrices: "Cryptocurrency Prices",
+        LatestNews: "Latest News",
+        CompareCurrencies: "Compare Currencies",
+        Username: "Username",
+        Password: "Password",
+        ConfirmPassword: "Confirm Password",
+        showPassword: "Show Password",
+        Mail: "Mail",
+        signupFirstname: "First Name",
+        signupLastname: "Last Name",
+
+        //error messages
+        errorFillAllFields: "Please fill in all the fields!",
+        errorPasswordsDoNotMatch: "Passwords do not match!",
+        errorUsernameExists: "Username already exists!",
+        errorEmailExists: "Email already exists!",
+        somethingWentWrong: "Something went wrong! Try again later!",
+        errorUserNotFound: "User not found!",
+        errorWrongPassword: "Wrong password!",
+
+        //success messages
+        successSignUp: "You have successfully signed up!",
+    },
+    de: {
+        LogInButton: "Melden Sie sich an",
+        SignUpButton: "Anmeldung",
+        darkMode: "Dunkel",
+        lightMode: "Licht",
+        defaultDevice: "Standardgerät",
+        CoinsButton: "Münzen",
+        NewsButton: "Nachricht",
+        CompareButton: "vergleichen",
+        NameInTable: "Name",
+        PriceInTable: "Preis",
+        MarketCapInTable: "Marktkapitalisierung",
+        VolumeInTable: "Volumen",
+        Last7DaysInTable: "Letzten 7 Tage",
+        CirculatingSupplyInTable: "Umlaufversorgung",
+        toolsName: "Werkzeuge",
+        DashBoardButton: "Armaturenbrett",
+        SettingsButton: "Einstellungen",
+        EarningsButton: "Verdienste",
+        SignOutButton: "Abmelden",
+        searchPlaceholder: "Suchen...",
+        cryptocurrencyPrices: "Kryptowährungspreise",
+        LatestNews: "Neueste Nachrichten",
+        CompareCurrencies: "Währungen vergleichen",
+        Username: "Nutzername",
+        Password: "Passwort",
+        ConfirmPassword: "Bestätige das Passwort",
+        showPassword: "Passwort anzeigen",
+        Mail: "Mail",
+        signupFirstname: "Vorname",
+        signupLastname: "Nachname",
+
+        //error messages
+        errorFillAllFields: "Bitte füllen Sie alle Felder aus!",
+        errorPasswordsDoNotMatch: "Passwörter stimmen nicht überein!",
+        errorUsernameExists: "Benutzername existiert bereits!",
+        errorEmailExists: "E-Mail existiert bereits!",
+        somethingWentWrong:
+            "Etwas ist schief gelaufen! Versuchen Sie es später erneut!",
+        errorUserNotFound: "Benutzer nicht gefunden!",
+        errorWrongPassword: "Falsches Passwort!",
+
+        //success messages
+        successSignUp: "Sie haben sich erfolgreich angemeldet!",
+    },
+    it: {
+        LogInButton: "Login",
+        SignUpButton: "Iscrizione",
+        darkMode: "Buio",
+        lightMode: "Luce",
+        defaultDevice: "Dispositivo predefinito",
+        CoinsButton: "Monete",
+        NewsButton: "Notizia",
+        CompareButton: "Confrontare",
+        NameInTable: "Nome",
+        PriceInTable: "Prezzo",
+        MarketCapInTable: "Capitalizzazione di mercato",
+        VolumeInTable: "Volume",
+        Last7DaysInTable: "Ultimi 7 giorni",
+        CirculatingSupplyInTable: "Fornitura circolante",
+        toolsName: "Utensili",
+        DashBoardButton: "Pannello di controllo",
+        SettingsButton: "Impostazioni",
+        EarningsButton: "Guadagni",
+        SignOutButton: "Disconnessione",
+        searchPlaceholder: "Ricerca...",
+        cryptocurrencyPrices: "Prezzi delle criptovalute",
+        LatestNews: "Ultime notizie",
+        CompareCurrencies: "Confronta le valute",
+        Username: "Nome utente",
+        Password: "Parola d'ordine",
+        ConfirmPassword: "Conferma password",
+        showPassword: "Mostra password",
+        Mail: "Posta",
+        signupFirstname: "Nome di battesimo",
+        signupLastname: "Cognome",
+
+        //error messages
+        errorFillAllFields: "Si prega di compilare tutti i campi!",
+        errorPasswordsDoNotMatch: "Le password non corrispondono!",
+        errorUsernameExists: "Il nome utente esiste già!",
+        errorEmailExists: "L'email esiste già!",
+        somethingWentWrong: "Qualcosa è andato storto! Riprova più tardi!",
+        errorUserNotFound: "Utente non trovato!",
+        errorWrongPassword: "Password errata!",
+
+        //success messages
+        successSignUp: "Ti sei registrato con successo!",
+    },
+    zh: {
+        LogInButton: "ログイン",
+        SignUpButton: "サインアップ",
+        darkMode: "暗い",
+        lightMode: "光",
+        defaultDevice: "デフォルトデバイス",
+        CoinsButton: "コイン",
+        NewsButton: "ニュース",
+        CompareButton: "比較する",
+        NameInTable: "名前",
+        PriceInTable: "価格",
+        MarketCapInTable: "時価総額",
+        VolumeInTable: "音量",
+        Last7DaysInTable: "過去 7 日間",
+        CirculatingSupplyInTable: "循環供給",
+        toolsName: "ツール",
+        DashBoardButton: "ダッシュボード",
+        SettingsButton: "設定",
+        EarningsButton: "収益",
+        SignOutButton: "サインアウト",
+        searchPlaceholder: "検索...",
+        cryptocurrencyPrices: "暗号通貨の価格",
+        LatestNews: "最新ニュース",
+        CompareCurrencies: "通貨を比較する",
+        Username: "ユーザー名",
+        Password: "パスワード",
+        ConfirmPassword: "パスワードを認証する",
+        showPassword: "パスワードを表示",
+        Mail: "メール",
+        signupFirstname: "ファーストネーム",
+        signupLastname: "苗字",
+
+        //error messages
+        errorFillAllFields: "すべてのフィールドに入力してください！",
+        errorPasswordsDoNotMatch: "パスワードが一致しません！",
+        errorUsernameExists: "ユーザー名はすでに存在します！",
+        errorEmailExists: "メールはすでに存在します！",
+        somethingWentWrong: "何かが間違っていました！後でやり直してください！",
+        errorUserNotFound: "ユーザーが見つかりません！",
+        errorWrongPassword: "パスワードが間違っています！",
+
+        //success messages
+        successSignUp: "正常にサインアップしました！",
+    },
+};
+
 let cryptocurrencies = [];
 
 document.addEventListener("DOMContentLoaded", function () {
+    authenticatedUser();
+
     setUpHandleChangePage(); //setup pagination functionality
 
     setTheme(); // Set theme on page load
 
     setUpLanguageButton(); //setup language toggle bar button
+
+    setUpLanguage(); //setup language
 
     setUpSearch(); //setup search functionality
 
@@ -10408,6 +10592,11 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDataAndBuildTable(); // Fetch data and build the table
 
     fetchDataAndBuildNews(); // Fetch news and build the news list
+
+    storageChange(); //setup storage change
+
+    document.getElementById("loaderBody").classList.add("hidden");
+    document.getElementById("mainBody").classList.remove("hidden");
 });
 
 //build the currencies table
@@ -10727,7 +10916,7 @@ function buildTable(currency) {
                     },
                 },
                 hover: {
-                    mode: null, // This disables hover effects
+                    // mode: null, // This disables hover effects
                 },
                 maintainAspectRatio: false,
             },
@@ -10737,28 +10926,81 @@ function buildTable(currency) {
 
 //set theme function
 function setTheme() {
-    const body = document.body;
     const currentTheme = localStorage.getItem("theme");
 
-    if (currentTheme === "dark") {
-        body.classList.add("dark");
-    } else {
-        body.classList.remove("dark");
-    }
+    const themeChangeButtonAuth = document.getElementById(
+        "themeChangeButton-Auth",
+    );
+    const themeChangeButtonUnAuth = document.getElementById(
+        "themeChangeButton-UnAuth",
+    );
+    const themeDropdownMenu = document.getElementById("theme-dropdown-menu");
+    const lightModeButton = document.getElementById("lightModeButton");
+    const darkModeButton = document.getElementById("darkModeButton");
 
-    const themeButton = document.getElementById("themeButton");
-    themeButton.addEventListener("click", () => {
-        const isDarkMode = body.classList.contains("dark");
-        if (isDarkMode) {
-            body.classList.remove("dark");
-            themeButton.textContent = "Dark Mode";
-            localStorage.setItem("theme", "light");
-        } else {
-            body.classList.add("dark");
-            themeButton.textContent = "Light Mode";
-            localStorage.setItem("theme", "dark");
+    changeTheme(currentTheme === "dark" ? "dark" : "light");
+
+    themeChangeButtonAuth.addEventListener("click", () => {
+        const rect = themeChangeButtonAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        themeDropdownMenu.style.left = rect.left + "px";
+        themeDropdownMenu.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        themeDropdownMenu.classList.toggle("hidden");
+    });
+    themeChangeButtonUnAuth.addEventListener("click", () => {
+        const rect = themeChangeButtonUnAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        themeDropdownMenu.style.left = rect.left + "px";
+        themeDropdownMenu.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        themeDropdownMenu.classList.toggle("hidden");
+    });
+
+    lightModeButton.addEventListener("click", () => {
+        changeTheme("light");
+        themeDropdownMenu.classList.add("hidden");
+    });
+
+    darkModeButton.addEventListener("click", () => {
+        changeTheme("dark");
+        themeDropdownMenu.classList.add("hidden");
+    });
+
+    // Add a global click event listener to close the dropdown when clicking outside the button and dropdown
+    document.addEventListener("click", function (event) {
+        if (
+            !themeChangeButtonUnAuth.contains(event.target) &&
+            !themeChangeButtonAuth.contains(event.target) &&
+            !themeDropdownMenu.contains(event.target)
+        ) {
+            // Close the dropdown if the click is outside the button and dropdown
+            themeDropdownMenu.classList.add("hidden");
         }
     });
+}
+
+function changeTheme(theme) {
+    const themeChangeButtonAuth = document.getElementById(
+        "themeChangeButton-Auth",
+    );
+    const themeChangeButtonUnAuth = document.getElementById(
+        "themeChangeButton-UnAuth",
+    );
+
+    if (theme === "dark") {
+        document.body.classList.add("dark");
+        themeChangeButtonAuth.innerHTML = "dark_mode";
+        themeChangeButtonUnAuth.innerHTML = "dark_mode";
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        themeChangeButtonAuth.innerHTML = "light_mode";
+        themeChangeButtonUnAuth.innerHTML = "light_mode";
+        localStorage.setItem("theme", "light");
+    }
 }
 
 //setup search functionality
@@ -10814,12 +11056,25 @@ function setUpDropdown() {
 
 //setup language toggle bar button
 function setUpLanguageButton() {
-    const languageButton = document.getElementById("languageButton"); //get language toggle bar button
+    const authenticated = localStorage.getItem("user");
+    let languageButtonAuth = document.getElementById("languageButton-Auth");
+    let languageButtonUnAuth = document.getElementById("languageButton-UnAuth");
+
     const languageDropdown = document.getElementById("language-dropdown-menu"); //get language dropdown menu
 
     // Add a click event listener to the language dropdown toggle button
-    languageButton.addEventListener("click", function () {
-        const rect = languageButton.getBoundingClientRect();
+    languageButtonAuth.addEventListener("click", function () {
+        const rect = languageButtonAuth.getBoundingClientRect();
+        // Calculate the position to open the dropdown below the button
+        languageDropdown.style.left = rect.left + "px";
+        languageDropdown.style.top = rect.bottom + "px";
+
+        // Toggle the visibility of the language dropdown
+        languageDropdown.classList.toggle("hidden");
+    });
+    // Add a click event listener to the language dropdown toggle button
+    languageButtonUnAuth.addEventListener("click", function () {
+        const rect = languageButtonUnAuth.getBoundingClientRect();
         // Calculate the position to open the dropdown below the button
         languageDropdown.style.left = rect.left + "px";
         languageDropdown.style.top = rect.bottom + "px";
@@ -10830,25 +11085,112 @@ function setUpLanguageButton() {
     // Add a global click event listener to close the dropdown when clicking outside the button and dropdown
     document.addEventListener("click", function (event) {
         if (
-            !languageButton.contains(event.target) &&
+            !languageButtonAuth.contains(event.target) &&
+            !languageButtonUnAuth.contains(event.target) &&
             !languageDropdown.contains(event.target)
         ) {
             // Close the dropdown if the click is outside the button and dropdown
             languageDropdown.classList.add("hidden");
         }
     });
+    // Get all language links inside the dropdown menu
+    var languageLinks = document.querySelectorAll("#language-dropdown-menu a");
+
+    // Define language translation objects
+
+    // Add click event listener to each language link
+    languageLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            var selectedLang = this.getAttribute("id").replace("lang-", ""); // Extract language from link id
+            changeLanguage(selectedLang); // Change language
+        });
+    });
+}
+
+export function homePage() {
+    const coinsPageButton = document.getElementById("CoinsButton");
+    const coinsPage = document.getElementById("coins");
+
+    const newsPageButton = document.getElementById("NewsButton");
+    const newsPage = document.getElementById("news");
+
+    const comparePageButton = document.getElementById("CompareButton");
+    const comparePage = document.getElementById("compare");
+
+    const logInPageButton = document.getElementById("LogInButton"); //get the login button
+    const logInPage = document.getElementById("login");
+
+    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
+    const signUpPage = document.getElementById("signUp");
+
+    const notSelectPageButtonClassList =
+        "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    const selectPageButtonClassList =
+        "block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
+    newsPageButton.classList = notSelectPageButtonClassList;
+    newsPage.classList.add("hidden");
+
+    comparePageButton.classList = notSelectPageButtonClassList;
+    comparePage.classList.add("hidden");
+
+    logInPage.classList.add("hidden");
+    signUpPage.classList.add("hidden");
+
+    coinsPageButton.classList = selectPageButtonClassList;
+    coinsPage.classList.remove("hidden");
+}
+
+export function loginPage() {
+    const coinsPageButton = document.getElementById("CoinsButton");
+    const coinsPage = document.getElementById("coins");
+
+    const newsPageButton = document.getElementById("NewsButton");
+    const newsPage = document.getElementById("news");
+
+    const comparePageButton = document.getElementById("CompareButton");
+    const comparePage = document.getElementById("compare");
+
+    const logInPageButton = document.getElementById("LogInButton"); //get the login button
+    const logInPage = document.getElementById("login");
+
+    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
+    const signUpPage = document.getElementById("signUp");
+
+    const notSelectPageButtonClassList =
+        "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
+    const selectPageButtonClassList =
+        "block py-2 px-3 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500";
+    coinsPageButton.classList = notSelectPageButtonClassList;
+    coinsPage.classList.add("hidden");
+
+    newsPageButton.classList = notSelectPageButtonClassList;
+    newsPage.classList.add("hidden");
+
+    comparePageButton.classList = notSelectPageButtonClassList;
+    comparePage.classList.add("hidden");
+
+    signUpPage.classList.add("hidden");
+
+    logInPage.classList.remove("hidden");
 }
 
 //handle change page function
 function setUpHandleChangePage() {
-    const coinsPageButton = document.getElementById("CoinsButton"); //get language toggle bar button
-    const coinsPage = document.getElementById("coins"); //get language toggle bar button
+    const coinsPageButton = document.getElementById("CoinsButton");
+    const coinsPage = document.getElementById("coins");
 
-    const newsPageButton = document.getElementById("NewsButton"); //get language dropdown menu
-    const newsPage = document.getElementById("news"); //get language dropdown menu
+    const newsPageButton = document.getElementById("NewsButton");
+    const newsPage = document.getElementById("news");
 
-    const comparePageButton = document.getElementById("CompareButton"); //get language dropdown menu
-    const comparePage = document.getElementById("compare"); //get language dropdown menu
+    const comparePageButton = document.getElementById("CompareButton");
+    const comparePage = document.getElementById("compare");
+
+    const logInPageButton = document.getElementById("LogInButton"); //get the login button
+    const logInPage = document.getElementById("login");
+
+    const signUpPageButton = document.getElementById("SignUpButton"); //get the signup button
+    const signUpPage = document.getElementById("signUp");
 
     const notSelectPageButtonClassList =
         "block py-2 px-3 text-gray-900 dark:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-100 md:p-0 md:dark:hover:text-blue-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
@@ -10863,9 +11205,13 @@ function setUpHandleChangePage() {
         comparePageButton.classList = notSelectPageButtonClassList;
         comparePage.classList.add("hidden");
 
+        logInPage.classList.add("hidden");
+        signUpPage.classList.add("hidden");
+
         coinsPageButton.classList = selectPageButtonClassList;
         coinsPage.classList.remove("hidden");
     });
+
     // Add a global click event listener to close the dropdown when clicking outside the button and dropdown
     newsPageButton.addEventListener("click", function (event) {
         coinsPageButton.classList = notSelectPageButtonClassList;
@@ -10873,6 +11219,9 @@ function setUpHandleChangePage() {
 
         comparePageButton.classList = notSelectPageButtonClassList;
         comparePage.classList.add("hidden");
+
+        logInPage.classList.add("hidden");
+        signUpPage.classList.add("hidden");
 
         newsPageButton.classList = selectPageButtonClassList;
         newsPage.classList.remove("hidden");
@@ -10885,8 +11234,41 @@ function setUpHandleChangePage() {
         newsPageButton.classList = notSelectPageButtonClassList;
         newsPage.classList.add("hidden");
 
+        logInPage.classList.add("hidden");
+        signUpPage.classList.add("hidden");
+
         comparePageButton.classList = selectPageButtonClassList;
         comparePage.classList.remove("hidden");
+    });
+
+    logInPageButton.addEventListener("click", function (event) {
+        coinsPageButton.classList = notSelectPageButtonClassList;
+        coinsPage.classList.add("hidden");
+
+        newsPageButton.classList = notSelectPageButtonClassList;
+        newsPage.classList.add("hidden");
+
+        comparePageButton.classList = notSelectPageButtonClassList;
+        comparePage.classList.add("hidden");
+
+        signUpPage.classList.add("hidden");
+
+        logInPage.classList.remove("hidden");
+    });
+
+    signUpPageButton.addEventListener("click", function (event) {
+        coinsPageButton.classList = notSelectPageButtonClassList;
+        coinsPage.classList.add("hidden");
+
+        newsPageButton.classList = notSelectPageButtonClassList;
+        newsPage.classList.add("hidden");
+
+        comparePageButton.classList = notSelectPageButtonClassList;
+        comparePage.classList.add("hidden");
+
+        logInPage.classList.add("hidden");
+
+        signUpPage.classList.remove("hidden");
     });
 }
 
@@ -10996,135 +11378,209 @@ function buildNewsList(news) {
     });
 }
 
+// Function to change language
+function changeLanguage(language) {
+    localStorage.setItem("language", language); // Save selected language to local storage
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    // Update text content of elements based on language
+    document.getElementById("LogInButton").textContent =
+        translations[language]["LogInButton"];
+    document.getElementById("SignUpButton").textContent =
+        translations[language]["SignUpButton"];
+    document.getElementById("CoinsButton").textContent =
+        translations[language]["CoinsButton"];
+    document.getElementById("NewsButton").textContent =
+        translations[language]["NewsButton"];
+    document.getElementById("CompareButton").textContent =
+        translations[language]["CompareButton"];
+    document.getElementById("NameInTable").textContent =
+        translations[language]["NameInTable"];
+    document.getElementById("PriceInTable").textContent =
+        translations[language]["PriceInTable"];
+    document.getElementById("MarketCapInTable").textContent =
+        translations[language]["MarketCapInTable"];
+    document.getElementById("VolumeInTable").textContent =
+        translations[language]["VolumeInTable"];
+    document.getElementById("Last7DaysInTable").textContent =
+        translations[language]["Last7DaysInTable"];
+    document.getElementById("CirculatingSupplyInTable").textContent =
+        translations[language]["CirculatingSupplyInTable"];
+    document.getElementById("toolsName").textContent =
+        translations[language]["toolsName"];
+    document.getElementById("DashBoardButton").textContent =
+        translations[language]["DashBoardButton"];
+    document.getElementById("SettingsButton").textContent =
+        translations[language]["SettingsButton"];
+    document.getElementById("EarningsButton").textContent =
+        translations[language]["EarningsButton"];
+    document.getElementById("SignOutButton").textContent =
+        translations[language]["SignOutButton"];
+    document.getElementById("search-navbar").placeholder =
+        translations[language]["searchPlaceholder"];
+    document.getElementById("cryptocurrencyPrices").textContent =
+        translations[language]["cryptocurrencyPrices"];
+    document.getElementById("LatestNews").textContent =
+        translations[language]["LatestNews"];
+    document.getElementById("CompareCurrencies").textContent =
+        translations[language]["CompareCurrencies"];
+    document.getElementById("login-title").textContent =
+        translations[language]["LogInButton"];
+    document.getElementById("login-username").placeholder =
+        translations[language]["Username"];
+    document.getElementById("login-password").placeholder =
+        translations[language]["Password"];
+    document.getElementById("LogIn-Button").textContent =
+        translations[language]["LogInButton"];
+    //signup-title
+    document.getElementById("signup-title").textContent =
+        translations[language]["SignUpButton"];
+    //signup-mail
+    document.getElementById("signup-mail").placeholder =
+        translations[language]["Mail"];
+    //signup-username
+    document.getElementById("signup-username").placeholder =
+        translations[language]["Username"];
+    //signup-password
+    document.getElementById("signup-password").placeholder =
+        translations[language]["Password"];
+    //signup-confirm-password
+    document.getElementById("signup-password-confirm").placeholder =
+        translations[language]["ConfirmPassword"];
+    //showPassword
+    document.getElementById("showPassword").textContent =
+        translations[language]["showPassword"];
+    //SignUp-Button
+    document.getElementById("SignUp-Button").textContent =
+        translations[language]["SignUpButton"];
+    //signup-firstname
+    document.getElementById("signup-firstname").placeholder =
+        translations[language]["signupFirstname"];
+    //signup-lastname
+    document.getElementById("signup-lastname").placeholder =
+        translations[language]["signupLastname"];
+    document.getElementById("lightModeButton").innerHTML =
+        "<span class='material-symbols-outlined mr-2'>light_mode</span>" +
+        translations[language]["lightMode"];
+    document.getElementById("darkModeButton").innerHTML =
+        "<span class='material-symbols-outlined mr-2'>dark_mode</span>" +
+        translations[language]["darkMode"];
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get all language links inside the dropdown menu
-    var languageLinks = document.querySelectorAll('#language-dropdown-menu a');
+    // Get the flag SVG and language name for the selected language
+    var selectedOption = document.querySelector(`#lang-${language}`);
+    var flagSvg = selectedOption.querySelector("svg").outerHTML;
+    var languageName = selectedOption.textContent;
 
-    // Define language translation objects
-    var translations = {
-        'en': {
-            'LogInButton': 'Log In',
-            'SignUpButton': 'Sign Up',
-            'darkModeToggle': 'Dark',
-            'CoinsButton':'Coins',
-            'NewsButton':'News',
-            'CompareButton':'Compare',
-            'NameInTable':'Name',
-            'PriceInTable':'Price',
-            'MarketCapInTable':'Market Cap',
-            'VolumeInTable':'Volume',
-            'Last7DaysInTable':'Last 7 days',
-            'CirculatingSupplyInTable':'Circulating Supply',
-            'toolsName':'Tools',
-            'DashBoardButton':'Dashboard',
-            'SettingsButton':'Settings',
-            'EarningsButton':'Earnings',
-            'SignOutButton':'Sign Out',
-            'searchPlaceholder':'       Search...',
-        },
-        'de': {
-            'LogInButton': 'Anmeldung',
-            'SignUpButton': 'Melden Sie sich an',
-            'darkModeToggle': 'Dunkel',
-            'CoinsButton':'Münzen',
-            'NewsButton':'Nachricht',
-            'CompareButton':'vergleichen',
-            'NameInTable':'Name',
-            'PriceInTable':'Preis',
-            'MarketCapInTable':'Marktkapitalisierung',
-            'VolumeInTable':'Volumen',
-            'Last7DaysInTable':'Letzten 7 Tage',
-            'CirculatingSupplyInTable':'Umlaufversorgung',
-            'toolsName':'Werkzeuge',
-            'DashBoardButton':'Armaturenbrett',
-            'SettingsButton':'Einstellungen',
-            'EarningsButton':'Verdienste',
-            'SignOutButton':'Abmelden',
-            'searchPlaceholder':'       Suchen...',
-        },
-        'it': {
-            'LogInButton': 'Login',
-            'SignUpButton': 'Iscrizione',
-            'darkModeToggle': 'Buio',
-            'CoinsButton':'Monete',
-            'NewsButton':'Notizia',
-            'CompareButton':'Confrontare',
-            'NameInTable':'Nome',
-            'PriceInTable':'Prezzo',
-            'MarketCapInTable':'Capitalizzazione di mercato',
-            'VolumeInTable':'Volume',
-            'Last7DaysInTable':'Ultimi 7 giorni',
-            'CirculatingSupplyInTable':'Fornitura circolante',
-            'toolsName':'Utensili',
-            'DashBoardButton':'Pannello di controllo',
-            'SettingsButton':'Impostazioni',
-            'EarningsButton':'Guadagni',
-            'SignOutButton':'Disconnessione',
-            'searchPlaceholder':'       Ricerca...',
-        },
-        'zh': {
-            'LogInButton': 'ログイン',
-            'SignUpButton': 'サインアップ',
-            'darkModeToggle': '暗い',
-            'CoinsButton':'コイン',
-            'NewsButton':'ニュース',
-            'CompareButton':'比較する',
-            'NameInTable':'名前',
-            'PriceInTable':'価格',
-            'MarketCapInTable':'時価総額',
-            'VolumeInTable':'音量',
-            'Last7DaysInTable':'過去 7 日間',
-            'CirculatingSupplyInTable':'循環供給',
-            'toolsName':'ツール',
-            'DashBoardButton':'ダッシュボード',
-            'SettingsButton':'設定',
-            'EarningsButton':'収益',
-            'SignOutButton':'サインアウト',
-            'searchPlaceholder':'       検索...',
-        }
-    };
+    document.getElementById("flagContainer-Auth").innerHTML = flagSvg;
+    document.getElementById("flagContainer-UnAuth").innerHTML = flagSvg;
+    document.getElementById("languageName-Auth").textContent = languageName;
+    document.getElementById("languageName-UnAuth").textContent = languageName;
+    // Hide the dropdown menu
+    var dropdownMenu = document.getElementById("language-dropdown-menu");
+    dropdownMenu.classList.add("hidden");
+}
 
-    // Function to change language
-    function changeLanguage(language) {
-        // Update text content of elements based on language
-        document.getElementById('LogInButton').textContent = translations[language]['LogInButton'];
-        document.getElementById('SignUpButton').textContent = translations[language]['SignUpButton'];
-        document.getElementById('themeButton').textContent = translations[language]['darkModeToggle'];
-        document.getElementById('CoinsButton').textContent = translations[language]['CoinsButton'];
-        document.getElementById('NewsButton').textContent = translations[language]['NewsButton'];
-        document.getElementById('CompareButton').textContent = translations[language]['CompareButton'];
-        document.getElementById('NameInTable').textContent = translations[language]['NameInTable'];
-        document.getElementById('PriceInTable').textContent = translations[language]['PriceInTable'];
-        document.getElementById('MarketCapInTable').textContent = translations[language]['MarketCapInTable'];
-        document.getElementById('VolumeInTable').textContent = translations[language]['VolumeInTable'];
-        document.getElementById('Last7DaysInTable').textContent = translations[language]['Last7DaysInTablen'];
-        document.getElementById('CirculatingSupplyInTable').textContent = translations[language]['CirculatingSupplyInTable'];
-        document.getElementById('toolsName').textContent = translations[language]['toolsName'];
-        document.getElementById('DashBoardButton').textContent = translations[language]['DashBoardButton'];
-        document.getElementById('SettingsButton').textContent = translations[language]['SettingsButton'];
-        document.getElementById('EarningsButton').textContent = translations[language]['EarningsButton'];
-        document.getElementById('SignOutButton').textContent = translations[language]['SignOutButton'];
-        document.getElementById('search-navbar').placeholder = translations[language]['searchPlaceholder'];
-
-        // Get the flag SVG and language name for the selected language
-        var selectedOption = document.querySelector(`#lang-${language}`);
-        var flagSvg = selectedOption.querySelector('svg').outerHTML;
-        var languageName = selectedOption.textContent;
-
-        document.getElementById('flagContainer').innerHTML = flagSvg;
-        document.getElementById('languageName').textContent = languageName;
-        // Hide the dropdown menu
-        var dropdownMenu = document.getElementById('language-dropdown-menu');
-        dropdownMenu.classList.add('hidden'); 
+function setUpLanguage() {
+    const language = localStorage.getItem("language");
+    if (language) {
+        changeLanguage(language);
+    } else {
+        localStorage.setItem("language", "en");
+        changeLanguage("en");
     }
+}
 
-    // Add click event listener to each language link
-    languageLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default link behavior
-            var selectedLang = this.getAttribute('id').replace('lang-', ''); // Extract language from link id
-            changeLanguage(selectedLang); // Change language
-        });
+export function authenticatedUser() {
+    let user = localStorage.getItem("user");
+    if (!user) return;
+
+    user = JSON.parse(user);
+    //LogInButton
+    document.getElementById("LogInButton").classList.add("hidden");
+    //SignUpButton
+    document.getElementById("SignUpButton").classList.add("hidden");
+
+    const Username = document.getElementById("username");
+    Username.innerHTML = user["username"];
+
+    const fullnaem = document.getElementById("fullname");
+    fullnaem.innerHTML = user["firstName"] + " " + user["lastName"];
+
+    const email = document.getElementById("userEmail");
+    email.innerHTML = user["email"];
+
+    const userIcon = document.getElementById("userIcon");
+
+    const userDataHover = document.getElementById("userDataHover");
+
+    // Add a mouseover event listener to the user dropdown toggle user button
+    userIcon.addEventListener("mouseover", function () {
+        const rect = userIcon.getBoundingClientRect();
+
+        userDataHover.style.position = "absolute";
+        userDataHover.style.right = 30 + "px";
+        userDataHover.style.top = rect.bottom + "px";
+
+        // userDataHover.style.width = `${rect.width}px`;
+
+        userDataHover.classList.remove("hidden");
     });
-});
+
+    //unAuthenticatedNavBar
+    document.getElementById("unAuthenticatedNavBar").classList.add("hidden");
+
+    //authenticatedNavBar
+    document.getElementById("authenticatedNavBar").classList.remove("hidden");
+
+    homePage();
+
+    const SignOutButton = document.getElementById("SignOutButton");
+
+    SignOutButton.addEventListener("click", function () {
+        SignOut();
+    });
+
+    document.addEventListener("mouseout", function (event) {
+        // console.log("mouseout");
+        if (
+            !userIcon.contains(event.target) &&
+            !userDataHover.contains(event.target)
+        ) {
+            userDataHover.classList.add("hidden");
+        }
+    });
+}
+
+function SignOut() {
+    localStorage.removeItem("user");
+
+    const userDataHover = document.getElementById("userDataHover");
+
+    //LogInButton
+    document.getElementById("LogInButton").classList.remove("hidden");
+    //SignUpButton
+    document.getElementById("SignUpButton").classList.remove("hidden");
+
+    //unAuthenticatedNavBar
+    document.getElementById("unAuthenticatedNavBar").classList.remove("hidden");
+
+    //authenticatedNavBar
+    document.getElementById("authenticatedNavBar").classList.add("hidden");
+
+    userDataHover.classList.add("hidden");
+
+    loginPage();
+}
+
+// listen for the local storage event
+function storageChange() {
+    window.addEventListener("storage", function (e) {
+        console.log("storage change", e);
+        if (e.key === "user") {
+            if (e.newValue) {
+                authenticatedUser();
+            } else {
+                SignOut();
+            }
+        }
+    });
+}
