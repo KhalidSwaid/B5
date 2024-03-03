@@ -264,13 +264,68 @@ document.addEventListener("DOMContentLoaded", function () {
             navMenu.style.top = `${rect.bottom + window.scrollY}px`;
             navMenu.style.left = `${rect.left + window.scrollX - 30}px`;
 
-            // Set each button to be displayed in a block (one below the other)
+            //Set each button to be displayed in a block (one below the other)
+            // const buttons = navMenu.querySelectorAll("button");
+            // buttons.forEach((button) => {
+            //     button.style.display = "block";
+            //     button.style.marginBottom = "8px";
+            //     button.style.padding = "8px";
+            // });
+            // Wrap buttons in a container div
+            const buttonsContainer = document.createElement("div");
+            buttonsContainer.style.display = "flex";
+            buttonsContainer.style.flexDirection = "column";
+            buttonsContainer.style.alignItems = "center";
+            buttonsContainer.style.marginLeft = "-5px";
+            buttonsContainer.style.borderRadius = "10px"; // Adjust the border radius as needed
+
+            // Function to update button styles
+            function updateButtonStyles() {
+                const buttons = navMenu.querySelectorAll("button");
+
+                buttonsContainer.style.backgroundColor = ""; // Reset background color
+
+                buttons.forEach((button) => {
+                    button.style.marginBottom = "";
+                    button.style.padding = "";
+                    button.style.backgroundColor = ""; // Reset background color
+                });
+            }
+
+            // Append the container to the navMenu
+            navMenu.appendChild(buttonsContainer);
+
+            // Set each button to be displayed in the container
             const buttons = navMenu.querySelectorAll("button");
             buttons.forEach((button) => {
-                button.style.display = "block";
                 button.style.marginBottom = "8px";
                 button.style.padding = "8px";
+
+                // Append the button to the container
+                buttonsContainer.appendChild(button);
             });
+
+            // Update styles when the window is resized
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
+                    // Clear inline styles for larger screens
+                    buttonsContainer.removeAttribute("style");
+                    updateButtonStyles(); // Reset button styles
+                } else {
+                    // Update styles for smaller screens
+                    buttonsContainer.style.display = "flex";
+                    updateButtonStyles();
+                }
+            });
+
+            // Set initial background color based on the page's background color
+            const pageBackgroundColor = window.matchMedia(
+                "(prefers-color-scheme: dark)",
+            ).matches
+                ? "#1F2937" // Dark background color
+                : "#FFFFFF"; // Light background color
+
+            buttonsContainer.style.backgroundColor = pageBackgroundColor;
         } else {
             // Remove mobile view styles
             navMenu.style.flexDirection = "";
